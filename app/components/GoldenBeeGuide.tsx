@@ -123,106 +123,85 @@ export default function GoldenBeeGuide() {
   }, []);
 
   return (
-    <div className="golden-bee-guide" aria-hidden="true">
-      <svg
-        className="golden-bee-stage"
-        viewBox="0 0 1000 1000"
-        preserveAspectRatio="none"
-      >
-        {/* Невидимая траектория */}
-        <path
-          ref={pathRef}
-          className="golden-bee-motion-path"
-          d="
-            M 90 850
-            C 180 680, 280 760, 390 585
-            C 500 410, 650 510, 770 330
-            C 850 210, 900 245, 940 120
-          "
-        />
+  <svg
+    className="golden-bee-guide"
+    viewBox="0 0 1000 900"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path
+      ref={pathRef}
+      className="golden-bee-motion-path"
+      d="
+        M 90 850
+        C 180 680, 280 760, 390 585
+        C 500 410, 650 510, 770 330
+        C 850 210, 900 245, 940 120
+      "
+    />
 
-        {/* Пчела */}
-        <g
-          ref={beeRef}
-          className="golden-bee"
-        >
-          <g ref={beeBodyRef}>
-            <circle
-              className="golden-bee-glow"
-              cx="0"
-              cy="0"
-              r="30"
-            />
+    <g ref={beeRef} className="golden-bee">
+      <g ref={beeBodyRef} className="golden-bee-rotation">
+        <g className="golden-bee-float">
+          <ellipse
+            className="bee-wing"
+            cx="43"
+            cy="38"
+            rx="15"
+            ry="7"
+            transform="rotate(-30 43 38)"
+          />
 
-            {/* крыло сверху */}
-            <path
-              className="bee-wing"
-              d="
-                M -5 -5
-                C -26 -29, -45 -25, -42 -8
-                C -39 7, -20 7, -5 1
-                Z
-              "
-            />
+          <ellipse
+            className="bee-wing"
+            cx="67"
+            cy="38"
+            rx="15"
+            ry="7"
+            transform="rotate(30 67 38)"
+          />
 
-            {/* крыло снизу */}
-            <path
-              className="bee-wing"
-              d="
-                M -4 5
-                C -25 27, -44 24, -42 8
-                C -39 -7, -20 -7, -4 -1
-                Z
-              "
-            />
+          <path
+            className="bee-body-outline"
+            d="
+              M55 36
+              C46 36 41 45 43 56
+              C45 67 50 76 55 83
+              C60 76 65 67 67 56
+              C69 45 64 36 55 36
+              Z
+            "
+          />
 
-            {/* тело */}
-            <ellipse
-              className="bee-body"
-              cx="7"
-              cy="0"
-              rx="20"
-              ry="11"
-            />
+          <path
+            className="bee-stripe-line"
+            d="M44 51 C51 54 59 54 66 51"
+          />
 
-            {/* полосы */}
-            <path
-              className="bee-stripe"
-              d="M 0 -10 L 0 10"
-            />
+          <path
+            className="bee-stripe-line"
+            d="M45 60 C52 63 58 63 65 60"
+          />
 
-            <path
-              className="bee-stripe"
-              d="M 8 -11 L 8 11"
-            />
+          <circle
+            className="bee-head-outline"
+            cx="55"
+            cy="30"
+            r="7"
+          />
 
-            {/* голова */}
-            <circle
-              className="bee-head"
-              cx="27"
-              cy="0"
-              r="7"
-            />
+          <path
+            className="bee-antenna"
+            d="M51 25 C45 18 43 17 40 18"
+          />
 
-            {/* усики */}
-            <path
-              className="bee-detail"
-              d="M 30 -5 C 36 -12, 40 -12, 43 -10"
-            />
-
-            <path
-              className="bee-detail"
-              d="M 30 5 C 36 12, 40 12, 43 10"
-            />
-
-            {/* хвост */}
-            <path
-              className="bee-detail"
-              d="M -13 0 L -23 0"
-            />
-          </g>
+          <path
+            className="bee-antenna"
+            d="M59 25 C65 18 67 17 70 18"
+          />
         </g>
-      </svg>
-    </div>
-  );
+      </g>
+    </g>
+  </svg>
+);
 }

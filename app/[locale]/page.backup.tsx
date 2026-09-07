@@ -10,11 +10,11 @@ import {
 
 import { products } from "../../src/data/products";
 
+import UrbechShowcase from "../components/UrbechShowcase";
 
 import ScrollAnimations from "../components/ScrollAnimations";
 
 import GoldenBeeGuide from "../components/GoldenBeeGuide";
-import ProductCard from "../components/ProductCard";
 
 const locales = ["en", "ru"] as const;
 
@@ -653,18 +653,83 @@ export default async function LocalePage({
               </p>
 
             </div>
-            <div className="shop-products-grid">
-            {honeyProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                name={product.content.name}
-                description={product.content.description}
-                image={product.image}
-                category={categoryLabels[lang][product.category]}
-                locale={lang}
-              />
-            ))}
-          </div>
+            <div className="standard-products-grid">
+
+              {honeyProducts.map((product) => (
+
+                <article
+
+                  className="catalog-product-card"
+
+                  key={product.id}
+
+                >
+
+                  <div className="catalog-product-image">
+
+                    <img
+
+                      src={product.image}
+
+                      alt={product.content.name}
+
+                    />
+
+                  </div>
+
+                  <div className="catalog-product-content">
+
+                    <p className="product-category">
+
+                      {categoryLabels[lang][product.category]}
+
+                    </p>
+
+                    <h4>{product.content.name}</h4>
+
+                    <p>{product.content.description}</p>
+
+                    <div className="catalog-product-footer">
+
+                      <span className="catalog-price">
+
+                        {product.price > 0
+
+                          ? `$${product.price}`
+
+                          : lang === "en"
+
+                            ? "Price on request"
+
+                            : "Цена по запросу"}
+
+                      </span>
+
+                      <a
+
+                        href="#contact"
+
+                        className="catalog-order-button"
+
+                      >
+
+                        {lang === "en"
+
+                          ? "Order"
+
+                          : "Заказать"}
+
+                      </a>
+
+                    </div>
+
+                  </div>
+
+                </article>
+
+              ))}
+
+            </div>
 
           </div>
 
@@ -712,17 +777,81 @@ export default async function LocalePage({
 
           </div>
 
-          <div className="shop-products-grid">
+          <div className="hive-products-grid">
+
             {hiveProducts.map((product) => (
-              <ProductCard
+
+              <article
+
+                className="hive-product-card"
+
                 key={product.id}
-                name={product.content.name}
-                description={product.content.description}
-                image={product.image}
-                category={categoryLabels[lang][product.category]}
-                locale={lang}
-              />
+
+              >
+
+                <div className="hive-product-image">
+
+                  <img
+
+                    src={product.image}
+
+                    alt={product.content.name}
+
+                  />
+
+                </div>
+
+                <div className="hive-product-content">
+
+                  <p className="product-category">
+
+                    {categoryLabels[lang][product.category]}
+
+                  </p>
+
+                  <h4>{product.content.name}</h4>
+
+                  <p>{product.content.description}</p>
+
+                  <div className="catalog-product-footer">
+
+                    <span className="catalog-price">
+
+                      {product.price > 0
+
+                        ? `$${product.price}`
+
+                        : lang === "en"
+
+                          ? "Price on request"
+
+                          : "Цена по запросу"}
+
+                    </span>
+                    <a
+
+                      href="#contact"
+
+                      className="catalog-order-button"
+
+                    >
+
+                      {lang === "en"
+
+                        ? "Order"
+
+                        : "Заказать"}
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </article>
+
             ))}
+
           </div>
 
         </div>
@@ -769,18 +898,13 @@ export default async function LocalePage({
 
           </div>
 
-          <div className="shop-products-grid">
-            {urbechProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                name={product.content.name}
-                description={product.content.description}
-                image={product.image}
-                category={categoryLabels[lang][product.category]}
-                locale={lang}
-              />
-            ))}
-          </div>
+          <UrbechShowcase
+
+            products={urbechProducts}
+
+            categoryLabel={categoryLabels[lang]["urbech"]}
+
+          />
 
         </div>
 
@@ -826,17 +950,82 @@ export default async function LocalePage({
 
           </div>
 
-          <div className="shop-products-grid">
+          <div className="tea-products-grid">
+
             {teaProducts.map((product) => (
-              <ProductCard
+
+              <article
+
+                className="tea-product-card"
+
                 key={product.id}
-                name={product.content.name}
-                description={product.content.description}
-                image={product.image}
-                category={categoryLabels[lang][product.category]}
-                locale={lang}
-              />
+
+              >
+
+                <div className="tea-product-image">
+
+                  <img
+
+                    src={product.image}
+
+                    alt={product.content.name}
+
+                  />
+
+                </div>
+
+                <div className="tea-product-content">
+
+                  <p className="product-category">
+
+                    {categoryLabels[lang][product.category]}
+
+                  </p>
+
+                  <h4>{product.content.name}</h4>
+
+                  <p>{product.content.description}</p>
+
+                  <div className="catalog-product-footer">
+
+                    <span className="catalog-price">
+
+                      {product.price > 0
+
+                        ? `$${product.price}`
+
+                        : lang === "en"
+
+                          ? "Price on request"
+
+                          : "Цена по запросу"}
+
+                    </span>
+
+                    <a
+
+                      href="#contact"
+
+                      className="catalog-order-button"
+
+                    >
+
+                      {lang === "en"
+
+                        ? "Order"
+
+                        : "Заказать"}
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </article>
+
             ))}
+
           </div>
 
         </div>
