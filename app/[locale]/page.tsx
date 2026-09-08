@@ -10,11 +10,13 @@ import {
 
 import { products } from "../../src/data/products";
 
+import AnimatedCounter from "../components/AnimatedCounter";
 
 import ScrollAnimations from "../components/ScrollAnimations";
 
 import GoldenBeeGuide from "../components/GoldenBeeGuide";
-import ProductCard from "../components/ProductCard";
+
+import ProductCatalog from "../components/ProductCatalog";
 
 const locales = ["en", "ru"] as const;
 
@@ -75,30 +77,6 @@ export default async function LocalePage({
     image: `/images/${product.category}/${lang}/${product.imageName}`,
 
   }));
-
-  const honeyProducts = localizedProducts.filter(
-
-    (product) => product.category === "honey"
-
-  );
-
-  const hiveProducts = localizedProducts.filter(
-
-    (product) => product.category === "honey-products"
-
-  );
-
-  const urbechProducts = localizedProducts.filter(
-
-    (product) => product.category === "urbech"
-
-  );
-
-  const teaProducts = localizedProducts.filter(
-
-    (product) => product.category === "tea"
-
-  );
 
   return (
 
@@ -230,6 +208,39 @@ export default async function LocalePage({
           </p>
 
           <div className="hero-actions">
+  <a href="#collection" className="hero-collection-button">
+    {lang === "ru" ? "Смотреть коллекцию" : "View collection"}
+  </a>
+
+  <a
+    href="#collection"
+    className="hero-scroll-hint"
+    aria-label={lang === "ru" ? "Прокрутить вниз" : "Scroll down"}
+  >
+    <span />
+  </a>
+</div>
+
+<div className="hero-facts">
+  <div className="hero-fact">
+    <strong>
+  <AnimatedCounter value={20} suffix="+" />
+</strong>
+    <span>{lang === "ru" ? "видов продуктов" : "product varieties"}</span>
+  </div>
+
+  <div className="hero-fact">
+    <strong>100%</strong>
+    <span>{lang === "ru" ? "натурально" : "natural"}</span>
+  </div>
+
+  <div className="hero-fact">
+    <strong>∞</strong>
+    <span>{lang === "ru" ? "уважение к природе" : "respect for nature"}</span>
+  </div>
+</div>
+
+          <div className="hero-actions">
 
             <a
 
@@ -281,99 +292,147 @@ export default async function LocalePage({
       </section>
 
       {/* MANIFESTO */}
-      <section
+      <section className="manifesto-parallax">
+  <div className="manifesto-overlay" />
 
-        className="manifesto-section reveal-section"
+  <div className="manifesto-inner">
+    <div className="manifesto-heading">
+      <span className="eyebrow">
+        {lang === "ru" ? "Наш манифест" : "Our manifesto"}
+      </span>
 
-        id="manifesto"
+      <h2>
+        {lang === "ru"
+          ? "Энергия гор. Душа Кавказа."
+          : "The energy of the mountains. The soul of the Caucasus."}
+      </h2>
 
-      >
+      <p>
+        {lang === "ru"
+          ? "Мы верим, что настоящее качество начинается с уважения — к природе, пчёлам и труду человека."
+          : "We believe true quality begins with respect — for nature, the bees, and human craft."}
+      </p>
+    </div>
 
-        <div className="section-gold-line" />
+    <div className="manifesto-cards">
 
-        <div className="manifesto-inner">
-
-          <p className="section-kicker">
-
-            {lang === "en"
-
-              ? "Our manifesto"
-
-              : "Наш манифест"}
-
-          </p>
-
-          <h2>
-
-            {lang === "en" ? (
-
-              <>
-
-                This is our honey.
-
-                
-
-
-                Our land.
-
-                
-
-
-                <em>Our pride.</em>
-
-              </>
-
-            ) : (
-
-              <>
-
-                Это наш мёд.
-
-                
-
-
-                Наша земля.
-
-                
-
-
-                <em>Наша гордость.</em>
-
-              </>
-
-            )}
-
-          </h2>
-
-          <div className="manifesto-copy">
-
-            <p>
-
-              {lang === "en"
-
-                ? "Kavkaz Hills was born from a simple belief: the strongest things do not need to be forced. They need time, clean land and respect."
-
-                : "Kavkaz Hills родился из простой мысли: настоящее не нужно подгонять. Ему нужны время, чистая земля и уважение."}
-
-            </p>
-
-            <p>
-
-              {lang === "en"
-
-                ? "The mountains give us far more than ingredients. They teach patience, responsibility and the value of knowing when not to interfere."
-
-                : "Горы дают нам гораздо больше, чем сырьё. Они учат терпению, ответственности и умению вовремя не вмешиваться."}
-
-            </p>
-
-          </div>
-
+      {/* Mountains */}
+      <article className="manifesto-card">
+        <div className="manifesto-icon">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M5 52 25 18l9 15 7-10 18 29" />
+            <path d="m18 30 7-12 6 10" />
+          </svg>
         </div>
 
-      </section>
+        <span className="manifesto-number">01</span>
+
+        <h3>{lang === "ru" ? "Происхождение" : "Origin"}</h3>
+
+        <p>
+          {lang === "ru"
+            ? "Продукты, рожденные природой Кавказа."
+            : "Products shaped by the nature of the Caucasus."}
+        </p>
+      </article>
+
+      {/* Hive */}
+      <article className="manifesto-card">
+        <div className="manifesto-icon">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M20 17h24l8 14-8 16H20L12 31Z" />
+            <path d="M20 17 12 31l8 16" />
+            <path d="M44 17 52 31l-8 16" />
+            <path d="M12 31h40" />
+          </svg>
+        </div>
+
+        <span className="manifesto-number">02</span>
+
+        <h3>{lang === "ru" ? "Забота" : "Care"}</h3>
+
+        <p>
+          {lang === "ru"
+            ? "Мы не забираем у пчёл больше, чем позволяет естественный цикл."
+            : "We never take more from the bees than their natural cycle allows."}
+        </p>
+      </article>
+
+      {/* Hands */}
+      <article className="manifesto-card">
+        <div className="manifesto-icon">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M7 39c8-2 13 0 19 6l5 5" />
+            <path d="M57 39c-8-2-13 0-19 6l-5 5" />
+            <path d="M20 38 32 26l12 12" />
+            <path d="M25 43 32 50l7-7" />
+          </svg>
+        </div>
+
+        <span className="manifesto-number">03</span>
+
+        <h3>{lang === "ru" ? "Мастерство" : "Craft"}</h3>
+
+        <p>
+          {lang === "ru"
+            ? "Внимание человека на каждом этапе — от пасеки до готового продукта."
+            : "Human attention at every stage — from the apiary to the finished product."}
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+      <section className="apiary-film-section">
+  <div className="apiary-film-copy">
+    <span className="eyebrow">
+      {lang === "ru" ? "Живая пасека" : "From the apiary"}
+    </span>
+
+    <h2>
+      {lang === "ru"
+        ? "Там, где начинается наш мёд"
+        : "Where our honey begins"}
+    </h2>
+
+    <p>
+      {lang === "ru"
+        ? "Наши пасеки находятся среди кавказской природы. Здесь важны не скорость и объём, а состояние пчёл, сезон и естественный ритм."
+        : "Our apiaries live within the landscape of the Caucasus. What matters here is not speed or volume, but the condition of the bees, the season, and the natural rhythm."}
+    </p>
+  </div>
+</section>
 
       {/* PRODUCTION / TRUST */}
+
+<section className="source-section">
+  <div className="source-bg" aria-hidden="true" />
+  <div className="source-overlay" aria-hidden="true" />
+
+  <div className="source-content">
+    <span className="source-eyebrow">
+      {lang === "ru" ? "Источник" : "The Source"}
+    </span>
+
+    <blockquote>
+      {lang === "ru"
+        ? "Иногда самое важное — вовремя ничего не делать."
+        : "Sometimes the most important thing is knowing when to do nothing."}
+    </blockquote>
+
+    <p>
+      {lang === "ru"
+        ? "Мы не ускоряем природу. Мы следуем её ритму — от горной пасеки до каждого продукта Kavkaz Hills."
+        : "We do not rush nature. We follow its rhythm — from the mountain apiary to every Kavkaz Hills product."}
+    </p>
+
+    <a href={`/${lang}/about`} className="source-button">
+      {lang === "ru" ? "Узнать больше" : "Learn more"}
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>
 
       <section
 
@@ -429,7 +488,7 @@ export default async function LocalePage({
 
             <img
 
-              src="/images/hero/founder.jpg"
+              src="/public/images/beekeeprs/IMG_9385.JPG"
 
               alt={
 
@@ -610,239 +669,20 @@ export default async function LocalePage({
 
         </div>
 
-        {/* HONEY */}
-
-        {honeyProducts.length > 0 && (
-
-          <div className="collection-group collection-group-honey">
-
-            <div className="collection-group-heading">
-
-              <div>
-
-                <p className="section-kicker">
-
-                  {lang === "en"
-
-                    ? "Our honey"
-
-                    : "Наш мёд"}
-
-                </p>
-
-                <h3>
-
-                  {lang === "en"
-
-                    ? "The heart of Kavkaz Hills."
-
-                    : "Сердце Kavkaz Hills."}
-
-                </h3>
-
-              </div>
-
-              <p>
-
-                {lang === "en"
-
-                  ? "Honey shaped by the landscape, the season and the plants blooming around our apiaries."
-
-                  : "Мёд, характер которого создают местность, сезон и растения вокруг наших пасек."}
-
-              </p>
-
-            </div>
-            <div className="shop-products-grid">
-            {honeyProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                name={product.content.name}
-                description={product.content.description}
-                image={product.image}
-                category={categoryLabels[lang][product.category]}
-                locale={lang}
-              />
-            ))}
-          </div>
-
-          </div>
-
-        )}
-
-        {/* FROM THE HIVE */}
-
-        <div className="collection-group collection-group-hive">
-
-          <div className="collection-group-heading">
-
-            <div>
-
-              <p className="section-kicker">
-
-                {lang === "en"
-
-                  ? "From the hive"
-
-                  : "Из улья"}
-
-              </p>
-
-              <h3>
-
-                {lang === "en"
-
-                  ? "Not everything the bees make is honey."
-
-                  : "Не всё, что создают пчёлы, — мёд."}
-
-              </h3>
-
-            </div>
-
-            <p>
-
-              {lang === "en"
-
-                ? "Bee bread, pollen and propolis — three products born inside the same living system."
-
-                : "Перга, пыльца и прополис — три разных продукта, созданных внутри одной живой системы."}
-
-            </p>
-
-          </div>
-
-          <div className="shop-products-grid">
-            {hiveProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                name={product.content.name}
-                description={product.content.description}
-                image={product.image}
-                category={categoryLabels[lang][product.category]}
-                locale={lang}
-              />
-            ))}
-          </div>
-
-        </div>
-
-        {/* URBECH */}
-
-        <div className="collection-group collection-group-urbech">
-
-          <div className="collection-group-heading">
-
-            <div>
-
-              <p className="section-kicker">
-
-                {lang === "en"
-
-                  ? "Urbech collection"
-
-                  : "Коллекция урбеча"}
-
-              </p>
-
-              <h3>
-
-                {lang === "en"
-
-                  ? "One tradition. Many characters."
-
-                  : "Одна традиция. Много характеров."}
-
-              </h3>
-
-            </div>
-
-            <p>
-
-              {lang === "en"
-
-                ? "Seeds, nuts and kernels slowly ground into a dense natural paste."
-
-                : "Семена, орехи и ядра, медленно перетёртые в густую натуральную пасту."}
-
-            </p>
-
-          </div>
-
-          <div className="shop-products-grid">
-            {urbechProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                name={product.content.name}
-                description={product.content.description}
-                image={product.image}
-                category={categoryLabels[lang][product.category]}
-                locale={lang}
-              />
-            ))}
-          </div>
-
-        </div>
-
-        {/* TEA */}
-
-        <div className="collection-group collection-group-tea">
-
-          <div className="collection-group-heading">
-
-            <div>
-
-              <p className="section-kicker">
-
-                {lang === "en"
-
-                  ? "Tea rituals"
-
-                  : "Чайные ритуалы"}
-
-              </p>
-
-              <h3>
-
-                {lang === "en"
-
-                  ? "A quieter way to taste the land."
-
-                  : "Более тихий способ почувствовать землю."}
-
-              </h3>
-
-            </div>
-
-            <p>
-
-              {lang === "en"
-
-                ? "Two teas, two traditions — created for moments that should not be rushed."
-
-                : "Два чая, две традиции — для моментов, которые не хочется торопить."}
-
-            </p>
-
-          </div>
-
-          <div className="shop-products-grid">
-            {teaProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                name={product.content.name}
-                description={product.content.description}
-                image={product.image}
-                category={categoryLabels[lang][product.category]}
-                locale={lang}
-              />
-            ))}
-          </div>
-
-        </div>
-
-      </section>
-
+</section>
+       
+             <ProductCatalog
+            locale={lang}
+            products={localizedProducts.map((product) => ({
+            id: product.id,
+            category: product.category,
+            image: product.image,
+            name: product.content.name,
+            description: product.content.description,
+           price: product.price || 100,
+      }))}
+      />
+            
       {/* NATURE / PROCESS */}
       <section className="nature-section reveal-section">
 
@@ -886,7 +726,7 @@ export default async function LocalePage({
 
           <img
 
-            src="/images/hero/founder.jpg"
+            src="/public/images/beekeeprs/IMG_9385.JPG"
 
             alt={
 

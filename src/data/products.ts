@@ -716,4 +716,292 @@ export const products: Product[] = [
     },
   },
 
+  {
+
+    id: "buckwheat-honey",
+
+    slug: "buckwheat-honey",
+
+    category: "honey",
+
+    price: 100,
+
+    weight: "",
+
+    imageName: "KavHill_honey_creamed_Buckwheat.png",
+
+    en: {
+
+      name: "Buckwheat Honey",
+
+      description: "Natural honey with a rich buckwheat character.",
+
+    },
+
+    ru: {
+
+      name: "Гречишный мёд",
+
+      description: "Натуральный мёд с насыщенным гречишным вкусом.",
+
+    },
+
+  },
+
+  {
+
+    id: "chocolate-creamed-honey",
+
+    slug: "chocolate-creamed-honey",
+
+    category: "honey",
+
+    price: 100,
+
+    weight: "",
+
+    imageName: "KavHill_honey_creamed_chocolate Creamed.png",
+
+    en: {
+
+      name: "Chocolate Creamed Honey",
+
+      description: "Creamed honey with chocolate.",
+
+    },
+
+    ru: {
+
+      name: "Крем-мёд с шоколадом",
+
+      description: "Нежный крем-мёд с шоколадом.",
+
+    },
+
+  },
+
+  {
+
+    id: "goldenrod-honey",
+
+    slug: "goldenrod-honey",
+
+    category: "honey",
+
+    price: 100,
+
+    weight: "",
+
+    imageName: "KavHill_honey_creamed_Goldenrod.png",
+
+    en: {
+
+      name: "Goldenrod Honey",
+
+      description: "Natural goldenrod honey.",
+
+    },
+
+    ru: {
+
+      name: "Мёд из золотарника",
+
+      description: "Натуральный мёд из золотарника.",
+
+    },
+
+  },
+
+  {
+
+    id: "honeycomb-honey",
+
+    slug: "honeycomb-honey",
+
+    category: "honey",
+
+    price: 100,
+
+    weight: "",
+
+    imageName: "KavHill_honey_creamed_honeycomb.png",
+
+    en: {
+
+      name: "Honeycomb Honey",
+
+      description: "Natural honey with honeycomb.",
+
+    },
+
+    ru: {
+
+      name: "Мёд с сотами",
+
+      description: "Натуральный мёд с медовыми сотами.",
+
+    },
+
+  },
+
+  {
+
+    id: "mountain-linden-honey",
+
+    slug: "mountain-linden-honey",
+
+    category: "honey",
+
+    price: 100,
+
+    weight: "",
+
+    imageName: "KavHill_honey_creamed_Mountain Linden.png",
+
+    en: {
+
+      name: "Mountain Linden Honey",
+
+      description: "Natural mountain linden honey.",
+
+    },
+
+    ru: {
+
+      name: "Горный липовый мёд",
+
+      description: "Натуральный мёд из горной липы.",
+
+    },
+
+  },
+
+  {
+
+    id: "mountain-spurge-honey",
+
+    slug: "mountain-spurge-honey",
+
+    category: "honey",
+
+    price: 100,
+
+    weight: "",
+
+    imageName: "KavHill_honey_creamed_Mountain Spurge.png",
+
+    en: {
+
+      name: "Mountain Spurge Honey",
+
+      description: "Natural mountain spurge honey.",
+
+    },
+
+    ru: {
+
+      name: "Горный молочаевый мёд",
+
+      description: "Натуральный горный мёд из молочая.",
+
+    },
+
+  },
+
+  {
+
+    id: "raspberry-creamed-honey",
+
+    slug: "raspberry-creamed-honey",
+
+    category: "honey",
+
+    price: 100,
+
+    weight: "",
+
+    imageName: "KavHill_honey_creamed_Raspberry Creame.png",
+
+    en: {
+
+      name: "Raspberry Creamed Honey",
+
+      description: "Creamed honey with raspberry.",
+
+    },
+
+    ru: {
+
+      name: "Крем-мёд с малиной",
+
+      description: "Нежный крем-мёд с малиной.",
+
+    },
+
+  },
+
+  {
+
+    id: "strawberry-creamed-honey",
+
+    slug: "strawberry-creamed-honey",
+
+    category: "honey",
+
+    price: 100,
+
+    weight: "",
+
+    imageName: "KavHill_honey_creamed_Strawberry Creamed.png",
+
+    en: {
+
+      name: "Strawberry Creamed Honey",
+
+      description: "Creamed honey with strawberry.",
+
+    },
+
+    ru: {
+
+      name: "Крем-мёд с клубникой",
+
+      description: "Нежный крем-мёд с клубникой.",
+
+    },
+
+  },
+
+  {
+
+    id: "wildflower-honey",
+
+    slug: "wildflower-honey",
+
+    category: "honey",
+
+    price: 100,
+
+    weight: "",
+
+    imageName: "KavHill_honey_creamed_Wildflower.png",
+
+    en: {
+
+      name: "Wildflower Honey",
+
+      description: "Natural wildflower honey.",
+
+    },
+
+    ru: {
+
+      name: "Разнотравный мёд",
+
+      description: "Натуральный мёд из горного разнотравья.",
+
+    },
+
+  },
+
 ]; 
