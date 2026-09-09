@@ -135,7 +135,7 @@ export default async function LocalePage({
 
           <img
 
-            src="/images/hero/founder.jpg"
+            src="/images/beekeepers/IMG_9890.PNG"
 
             alt={
 
@@ -488,7 +488,7 @@ export default async function LocalePage({
 
             <img
 
-              src="/public/images/beekeeprs/IMG_9385.JPG"
+              src="/images/beekeeprs/IMG_9620.JPG"
 
               alt={
 
@@ -726,15 +726,15 @@ export default async function LocalePage({
 
           <img
 
-            src="/public/images/beekeeprs/IMG_9385.JPG"
+            src="/images/photos/IMG_9578.JPG"
 
             alt={
 
               lang === "en"
 
-                ? "Kavkaz Hills apiary in the Caucasus"
+                ? "Kavkaz Hills apiary"
 
-                : "Пасека Kavkaz Hills на Кавказе"
+                : "Пасека Kavkaz Hills"
 
             }
 

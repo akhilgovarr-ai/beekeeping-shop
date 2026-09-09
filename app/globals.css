@@ -492,7 +492,7 @@ h4 {
 
   padding: var(--section-space) var(--page-padding);
 
-  background-image: url("/public/images/photos/IMG_8981.JPG");
+  background-image: url("/images/photos/IMG_8981.JPG");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2194,7 +2194,7 @@ html {
   inset: -6%;
   z-index: -3;
 
-  background-image: url("/public/images/photos/IMG_8983.JPG");
+  background-image: url("/images/photos/IMG_8983.JPG");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
