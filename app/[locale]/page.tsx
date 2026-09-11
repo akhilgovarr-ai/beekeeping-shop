@@ -16,6 +16,8 @@ import ScrollAnimations from "../components/ScrollAnimations";
 
 import Image from "next/image";
 
+import { redirect } from "next/navigation";
+
 import ProductCatalog from "../components/ProductCatalog";
 
 const locales = ["en", "ru"] as const;
@@ -118,24 +120,18 @@ export default async function LocalePage({
         </div>
 
         <div className="hero-media">
-
-          <img
-
-            src="/public/images/beekeepers/IMG_9890.JPG"
-
-            alt={
-
-              lang === "en"
-
-                ? "Founder and head beekeeper of Kavkaz Hills"
-
-                : "Основатель и главный пчеловод Kavkaz Hills"
-
-            }
-
-            className="hero-founder-image"
-
-          />
+  <Image
+    src="/images/beekeepers/IMG_9890.JPG"
+    alt={
+      lang === "en"
+        ? "Founder and head beekeeper of Kavkaz Hills"
+        : "Основатель и главный пчеловод Kavkaz Hills"
+    }
+    className="hero-founder-image"
+    fill
+    priority
+    sizes="100vw"
+  />
 
           <div className="hero-overlay" />
 
