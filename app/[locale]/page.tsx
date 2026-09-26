@@ -20,6 +20,8 @@ import { redirect } from "next/navigation";
 
 import ProductCatalog from "../components/ProductCatalog";
 
+import Header from "../components/Header";
+
 const locales = ["en", "ru"] as const;
 
 const categoryLabels = {
@@ -70,19 +72,20 @@ export default async function LocalePage({
 
   const lang = locale as Locale;
 
-  const localizedProducts = products.map((product) => ({
-
-    ...product,
-
-    content: product[lang],
-
-    image: `/images/${product.category}/${lang}/${product.imageName}`,
-
-  }));
+ const localizedProducts = products.map((product) => ({
+  ...product,
+  content: {
+    name: product.name[lang],
+    description: product.shortDescription[lang],
+  },
+  image: `/images/${product.category}/${lang}/${product.imageName}`,
+}));
 
   return (
 
     <main className="site-main">
+      
+     <Header locale={lang} />
       <ScrollAnimations />
 
       {/* HERO */}

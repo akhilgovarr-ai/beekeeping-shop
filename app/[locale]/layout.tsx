@@ -1,23 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Playfair_Display, Inter } from "next/font/google";
-import "../globals.css";
+import { CartProvider } from "../components/CartContext";
 
 const locales = ["en", "ru"] as const;
 type Locale = (typeof locales)[number];
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
 
 const siteContent = {
   ru: {
@@ -73,12 +59,5 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  return (
-    <html
-      lang={locale}
-      className={`${playfair.variable} ${inter.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
-  );
+  return <CartProvider>{children}</CartProvider>;
 }

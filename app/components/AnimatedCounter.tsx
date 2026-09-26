@@ -46,10 +46,6 @@ export default function AnimatedCounter({
 
           const progress = Math.min(elapsed / duration, 1);
 
-          /*
-           * Ease-out:
-           * быстро в начале, мягкая остановка в конце
-           */
           const easedProgress = 1 - Math.pow(1 - progress, 3);
 
           setCount(Math.round(value * easedProgress));

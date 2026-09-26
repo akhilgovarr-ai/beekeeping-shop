@@ -1,14 +1,9 @@
 export interface LocalizedText {
   ru: string;
-  en: string; // используется и для английской, и для арабской версии сайта
+  en: string;
 }
 
-export interface LocalizedImages {
-  ru: string[];
-  en: string[];
-}
-
-export type ProductCategory = "honey" | "urbech" | "tea" | "royal-bee";
+export type ProductCategory = "honey" | "urbech" | "tea" | "honey-products";
 
 export interface Product {
   id: string;
@@ -16,9 +11,9 @@ export interface Product {
   category: ProductCategory;
   name: LocalizedText;
   shortDescription: LocalizedText;
-  price: number | null; // null = цена ещё не указана ("уточняется")
+  price: number | null;
   weight: string;
-  images: LocalizedImages;
+  imageName: string;
   available: boolean;
   featured?: boolean;
 }
