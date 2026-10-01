@@ -1,25 +1,14 @@
 import { notFound } from "next/navigation";
-
 import {
-
-  dictionaries,
 
   type Locale,
 
 } from "../../src/i18n/dictionaries";
-
 import { products } from "../../src/data/products";
-
-import AnimatedCounter from "../components/AnimatedCounter";
-
-import ScrollAnimations from "../components/ScrollAnimations";
-
 import Image from "next/image";
-
 import { redirect } from "next/navigation";
-
-import ProductCatalog from "../components/ProductCatalog";
-
+import Reveal from "../components/Reveal";
+import PreviewGrid from "../components/PreviewGrid";
 import Header from "../components/Header";
 
 const locales = ["en", "ru"] as const;
@@ -86,424 +75,99 @@ export default async function LocalePage({
     <main className="site-main">
       
      <Header locale={lang} />
-      <ScrollAnimations />
-
       {/* HERO */}
 
-      <section className="hero" id="home">
-
-        <div className="hero-language-switch">
-
-          <a
-
-            href="/en"
-
-            className={lang === "en" ? "active" : ""}
-
-          >
-
-            EN
-
-          </a>
-
-          <span>/</span>
-
-          <a
-
-            href="/ru"
-
-            className={lang === "ru" ? "active" : ""}
-
-          >
-
-            RU
-
-          </a>
-
-        </div>
-
-        <div className="hero-media">
+     <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-ink">
   <Image
-    src="/images/beekeepers/IMG_9890.JPG"
+    src="/images/beekeepers/IMG_9428.JPG"
     alt={
       lang === "en"
         ? "Founder and head beekeeper of Kavkaz Hills"
         : "Основатель и главный пчеловод Kavkaz Hills"
     }
-    className="hero-founder-image"
     fill
     priority
     sizes="100vw"
+    className="object-cover opacity-90"
   />
-
-          <div className="hero-overlay" />
-
-          <div className="hero-glow" />
-
-        </div>
-
-        <div className="hero-content">
-
-          <p className="hero-kicker">
-
-            {lang === "en"
-
-              ? "North Caucasus"
-
-              : "Северный Кавказ"}
-
-          </p>
-
-          <h1 className="hero-title">
-
-            <span>Kavkaz Hills.</span>
-
-            <span className="hero-title-accent">
-
-              {lang === "en"
-
-                ? "Source of living strength."
-
-                : "Источник живой силы."}
-
-            </span>
-
-          </h1>
-
-          <div className="hero-accent-line" />
-
-          <p className="hero-subtitle">
-
-            {lang === "en"
-
-              ? "Some things cannot be rushed."
-
-              : "Некоторые вещи нельзя торопить."}
-
-          </p>
-
-          <p className="hero-description">
-
-            {lang === "en"
-
-              ? "High in the Caucasus, nature still keeps its own time."
-
-              : "Высоко в горах Кавказа природа всё ещё живёт в своём ритме."}
-
-          </p>
-
-          <div className="hero-actions">
-
-            <a
-
-              href="#collection"
-
-              className="hero-button-primary"
-
-            >
-
-              {lang === "en"
-
-                ? "View collection"
-
-                : "Смотреть коллекцию"}
-
-            </a>
-
-            <a
-
-              href="#manifesto"
-
-              className="hero-button-secondary"
-              >
-
-              {lang === "en"
-
-                ? "Our story"
-
-                : "Наша история"}
-
-            </a>
-
-          </div>
-
-        </div>
-
-        <div className="hero-scroll">
-
-          <span>
-
-            {lang === "en" ? "Scroll" : "Листайте"}
-
-          </span>
-
-          <div className="hero-scroll-line" />
-
-        </div>
-
-      </section>
-
-      {/* TRUST STRIP */}
-<section className="trust-strip">
-  <div className="trust-fact">
-    <strong>
-      <AnimatedCounter value={20} suffix="+" />
-    </strong>
-    <span>{lang === "ru" ? "видов продуктов" : "product varieties"}</span>
-  </div>
-  <div className="trust-fact">
-    <strong>100%</strong>
-    <span>{lang === "ru" ? "натурально" : "natural"}</span>
-  </div>
-  <div className="trust-fact">
-    <strong>∞</strong>
-    <span>{lang === "ru" ? "уважение к природе" : "respect for nature"}</span>
-  </div>
-</section>
-
-      {/* MANIFESTO */}
-      <section className="manifesto-parallax" id="manifesto">
-  <div className="manifesto-overlay" />
-
-  <div className="manifesto-inner">
-    <div className="manifesto-heading">
-      <span className="eyebrow">
-        {lang === "ru" ? "Наш манифест" : "Our manifesto"}
-      </span>
-
-      <h2>
-        {lang === "ru"
-          ? "Энергия гор. Душа Кавказа."
-          : "The energy of the mountains. The soul of the Caucasus."}
-      </h2>
-
-      <p>
-        {lang === "ru"
-          ? "Мы верим, что настоящее качество начинается с уважения — к природе, пчёлам и труду человека."
-          : "We believe true quality begins with respect — for nature, the bees, and human craft."}
-      </p>
-    </div>
-
-    <div className="manifesto-cards">
-
-      {/* Mountains */}
-      <article className="manifesto-card">
-        <div className="manifesto-icon">
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M5 52 25 18l9 15 7-10 18 29" />
-            <path d="m18 30 7-12 6 10" />
-          </svg>
-        </div>
-
-        <span className="manifesto-number">01</span>
-
-        <h3>{lang === "ru" ? "Происхождение" : "Origin"}</h3>
-
-        <p>
-          {lang === "ru"
-            ? "Продукты, рожденные природой Кавказа."
-            : "Products shaped by the nature of the Caucasus."}
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-     {/* ORIGIN / PEOPLE */}
-      <section
-
-        className="production-section reveal-section"
-
-        id="origin"
-
-      >
-
-        <div className="production-heading">
-
-          <div>
-
-            <p className="section-kicker">
-
-              {lang === "en"
-
-                ? "From the apiary"
-
-                : "Живая пасека"}
-
-            </p>
-
-            <h2>
-
-              {lang === "en"
-
-                ? "Where our honey begins."
-
-                : "Там, где начинается наш мёд."}
-
-            </h2>
-
-          </div>
-
-          <p>
-
-            {lang === "en"
-
-              ? "Our apiaries live within the landscape of Caucasus. Here, the condition of bees, the season, and the natural rhythm are important."
-
-              : "Наши пасеки находятся среди природы Кавказа. Здесь важно состояние пчёл, сезон и естественный ритм. "}
-
-          </p>
-
-        </div>
-
-          <div className="production-photo">
-
-            <Image
-
-              src="/images/beekeepers/IMG_9620.JPG"
-
-              alt={
-
-                lang === "en"
-
-                  ? "Kavkaz Hills beekeeper at the apiary"
-
-                  : "Пчеловод Kavkaz Hills на пасеке"
-
-              }
-
-            fill
-            sizes="(max-width: 700px) 100vw, 900px"
-            style={{ objectFit: "cover", objectPosition: "38% 22%" }}
-           />
-
-            <div className="production-photo-overlay" />
-
-            <div className="production-photo-caption">
-
-              <span>01</span>
-
-              <p>
-
-                {lang === "en"
-
-                  ? "Real people. Real apiary."
-
-                  : "Настоящие люди. Настоящая пасека."}
-
-              </p>
-
-            </div>
-
-          </div>
-          
-      </section>
-
-      {/* PRINCIPLES */}
-<section className="production-section reveal-section" id="principles">
-  <div className="production-heading">
-    <div>
-      <h2>
-        {lang === "en" ? "Care is part of the process." : "Забота — часть производства."}
-      </h2>
-    </div>
-    <p>
-      {lang === "en"
-        ? "Our work begins with the bees, not with the jar. We take only what nature can give."
-        : "Наша работа начинается с пчёл, а не с банки мёда. Мы берём только то, что природа может отдать."}
-    </p>
-  </div>
-  <div className="production-principles">
-    <article className="production-principle">
-      <span>01</span>
-      <div>
-        <h3>{lang === "en" ? "The hive comes first." : "Сначала — улей."}</h3>
-        <p>
-          {lang === "en"
-            ? "Not every drop belongs to us. Enough honey is always left for the bees themselves."
-            : "Не всё, что создают пчёлы, принадлежит нам. В улье всегда остаётся достаточно мёда для самой семьи."}
-        </p>
-      </div>
-    </article>
-    <article className="production-principle">
-      <span>02</span>
-      <div>
-        <h3>{lang === "en" ? "No unnecessary intervention." : "Без лишнего вмешательства."}</h3>
-        <p>
-          {lang === "en"
-            ? "We do not try to accelerate what nature already knows how to do."
-            : "Мы не пытаемся ускорить то, что природа и без нас умеет делать правильно."}
-        </p>
-      </div>
-    </article>
-    <article className="production-principle">
-      <span>03</span>
-      <div>
-        <h3>{lang === "en" ? "Nothing to hide." : "Нам нечего скрывать."}</h3>
-        <p>
-          {lang === "en"
-            ? "Our products begin here — among wooden hives, mountain air and the hands of people who know every stage of the process."
-            : "Наш продукт начинается здесь — среди деревянных ульев, горного воздуха и людей, которые знают каждый этап производства."}
-        </p>
-      </div>
-      </article>
-
-      <div className="production-photo">
-    <Image
-      src="/images/beekeepers/IMG_9628.JPG"
-      alt={
-        lang === "en"
-          ? "Kavkaz Hills beehives among the trees"
-          : "Ульи Kavkaz Hills среди деревьев"
-      }
-      fill
-      sizes="(max-width: 700px) 100vw, 900px"
-      style={{ objectFit: "cover", objectPosition: "center 50%" }}
-    />
-  </div>
-  </div>
-</section>
-
-{/* TRANSITION TO COLLECTION */}
-<section className="source-section">
-  <div className="source-bg" aria-hidden="true" />
-  <div className="source-overlay" aria-hidden="true" />
-  <div className="source-content">
-    <span className="source-eyebrow">
-      {lang === "ru" ? "Источник" : "The Source"}
+  <div className="absolute inset-0 bg-gradient-to-t from-paper via-paper/70 to-paper/10" />
+  <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-20 md:px-10 md:pb-28">
+    <span className="text-sm font-medium tracking-label text-ink md:text-base">
+      {lang === "ru" ? "Северный Кавказ" : "North Caucasus"}
     </span>
-    <blockquote>
+    <h1 className="mt-4 font-serif text-6xl font-semibold leading-[0.95] text-gold md:text-8xl lg:text-9xl">
+      Kavkaz Hills
+    </h1>
+    <p className="mt-6 max-w-xl text-lg text-ink md:text-xl">
       {lang === "ru"
-        ? "Иногда самое важное — вовремя ничего не делать."
-        : "Sometimes the most important thing is knowing when to do nothing."}
-    </blockquote>
-    <p>
-      {lang === "ru"
-        ? "Мы не ускоряем природу. Мы следуем её ритму — от горной пасеки до каждого продукта Kavkaz Hills."
-        : "We do not rush nature. We follow its rhythm — from the mountain apiary to every Kavkaz Hills product."}
+        ? "Высоко в горах Кавказа природа всё ещё живёт в своём ритме."
+        : "High in the Caucasus, nature still keeps its own time."}
     </p>
-    <a href="#collection" className="source-button">
-      {lang === "ru" ? "Смотреть коллекцию" : "View collection"}
-      <span aria-hidden="true">↗</span>
-    </a>
+    <div className="mt-10 flex flex-wrap items-center gap-4">
+      <a
+        href="#collection"
+        className="border border-gold bg-paper/40 px-10 py-4 text-sm font-medium tracking-label text-gold transition-colors hover:bg-gold hover:text-paper md:text-base"
+      >
+        {lang === "ru" ? "Смотреть коллекцию" : "View collection"}
+      </a>
+      <a
+        href="#manifesto"
+        className="px-6 py-4 text-sm font-medium tracking-label text-ink underline decoration-gold underline-offset-8 transition-colors hover:text-gold md:text-base"
+      >
+        {lang === "ru" ? "Наша история" : "Our story"}
+      </a>
+    </div>
   </div>
 </section>
 
-             
-             <ProductCatalog
-            locale={lang}
-            products={localizedProducts.map((product) => ({
-            id: product.id,
-            category: product.category,
-            image: product.image,
-            name: product.content.name,
-            description: product.content.description,
-           price: product.price || 100,
-      }))}
+{/* ABOUT */}
+<Reveal>
+  <section id="about" className="mx-auto max-w-350 px-6 py-24 md:px-10 md:py-32">
+    <div className="relative aspect-[4/3] w-full overflow-hidden bg-line/40 md:aspect-[21/9]">
+      <Image
+        src="/images/beekeepers/IMG_9620.JPG"
+        alt={
+          lang === "en"
+            ? "Kavkaz Hills beekeeper at the apiary"
+            : "Пчеловод Kavkaz Hills на пасеке"
+        }
+        fill
+        sizes="100vw"
+        className="object-cover"
       />
+    </div>
+    <p className="mt-6 text-sm text-ink-soft">
+      {lang === "ru" ? "Пчеловод Kavkaz Hills на пасеке." : "Kavkaz Hills beekeeper at the apiary."}
+    </p>
+  </section>
+</Reveal>
+
+{/* COLLECTION PREVIEW — те же карточки, что в каталоге */}
+<Reveal>
+  <section id="collection" className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
+    <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div>
+        <span className="text-xs tracking-label text-ink-soft">
+          {lang === "ru" ? "Коллекция" : "Collection"}
+        </span>
+        <h2 className="mt-3 text-heading font-medium text-ink">
+          {lang === "ru" ? "Выберите свой продукт" : "Choose your product"}
+        </h2>
+      </div>
+      <a
+        href={`/${lang}/catalogue`}
+        className="text-sm text-ink underline underline-offset-4"
+      >
+        {lang === "ru" ? "Весь каталог →" : "Full catalogue →"}
+      </a>
+    </div>
+
+    <div className="mt-10">
+      <PreviewGrid locale={lang} />
+      </div>
+     </section>
+    </Reveal>
             
-     
       {/* CONTACT / FOOTER */}
 
       <footer className="site-footer" id="contact">

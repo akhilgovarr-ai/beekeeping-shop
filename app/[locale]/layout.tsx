@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import "../globals.css";
 import { CartProvider } from "../components/CartContext";
+import CartDrawer from "../components/CartDrawer";
+import { Playfair_Display, Inter } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 const locales = ["en", "ru"] as const;
 type Locale = (typeof locales)[number];
@@ -59,5 +74,14 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  return <CartProvider>{children}</CartProvider>;
+ return (
+  <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
+    <body>
+      <CartProvider>
+        {children}
+        <CartDrawer locale={locale as "ru" | "en"} />
+      </CartProvider>
+    </body>
+  </html>
+);
 }

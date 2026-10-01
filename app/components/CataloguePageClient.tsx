@@ -6,9 +6,10 @@ import type { Product, ProductCategory } from "../../src/types/product";
 import Header from "./Header";
 import ProductGrid from "./ProductGrid";
 import ProductModal from "./ProductModal";
+import { buildSkuMap } from "../../src/lib/sku";
 
 type Locale = "ru" | "en";
-type Filter ="all" | "honey" | "honey-products" | "urbech" | "tea";
+type Filter = "all" | ProductCategory;
 
 const FILTER_LABELS: Record<Filter, { ru: string; en: string }> = {
   all: { ru: "Всё", en: "All" },
@@ -16,29 +17,15 @@ const FILTER_LABELS: Record<Filter, { ru: string; en: string }> = {
   "honey-products": { ru: "Из улья", en: "From the Hive" },
   urbech: { ru: "Урбеч", en: "Urbech" },
   tea: { ru: "Чай", en: "Tea" },
-};
-
-const CATEGORY_PREFIX: Record<ProductCategory, string> = {
-  honey: "HON",
-  urbech: "URB",
-  tea: "TEA",
-  "honey-products": "HIVE",
+  candles: { ru: "Свечи", en: "Candles" },
+  "gift-sets": { ru: "Наборы", en: "Gift Sets" },
 };
 
 export default function CataloguePageClient({ locale }: { locale: Locale }) {
   const [filter, setFilter] = useState<Filter>("all");
   const [selected, setSelected] = useState<Product | null>(null);
-
-  const skuMap = useMemo(() => {
-    const map = new Map<string, string>();
-    const counters: Record<string, number> = {};
-    products.forEach((product) => {
-      const prefix = CATEGORY_PREFIX[product.category];
-      counters[prefix] = (counters[prefix] ?? 0) + 1;
-      map.set(product.id, `KH-${prefix}-${String(counters[prefix]).padStart(3, "0")}`);
-    });
-    return map;
-  }, []);
+ 
+  const skuMap = useMemo(() => buildSkuMap(products), []);
 
   const filteredProducts =
     filter === "all" ? products : products.filter((p) => p.category === filter);
@@ -48,7 +35,7 @@ export default function CataloguePageClient({ locale }: { locale: Locale }) {
       <Header locale={locale} />
 
       <main className="mx-auto max-w-350 px-6 py-16 md:px-10 md:py-24">
-        <h1 className="text-display font-medium text-ink">
+        <h1 className="text-display font-medium text-gold">
           {locale === "ru" ? "Каталог" : "Catalogue"}
         </h1>
 
@@ -58,10 +45,10 @@ export default function CataloguePageClient({ locale }: { locale: Locale }) {
               key={key}
               type="button"
               onClick={() => setFilter(key)}
-              className={`text-sm tracking-label transition-colors ${
+            className={`px-1 py-2 text-sm tracking-label transition-colors ${
                 filter === key
-                  ? "font-medium text-ink underline underline-offset-4"
-                  : "text-ink-soft hover:text-ink"
+                  ? "font-medium text-gold underline underline-offset-4"
+                  : "text-ink-soft hover:text-gold"
               }`}
             >
               {FILTER_LABELS[key][locale]}

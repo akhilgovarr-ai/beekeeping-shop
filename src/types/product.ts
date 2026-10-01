@@ -3,7 +3,18 @@ export interface LocalizedText {
   en: string;
 }
 
-export type ProductCategory = "honey" | "urbech" | "tea" | "honey-products";
+export type ProductCategory =
+  | "honey"
+  | "urbech"
+  | "tea"
+  | "honey-products"
+  | "candles"
+  | "gift-sets";
+
+export interface ProductVariant {
+  weight: string;
+  price: number;
+}
 
 export interface Product {
   id: string;
@@ -11,8 +22,7 @@ export interface Product {
   category: ProductCategory;
   name: LocalizedText;
   shortDescription: LocalizedText;
-  price: number | null;
-  weight: string;
+  variants: ProductVariant[];
   imageName: string;
   available: boolean;
   featured?: boolean;
