@@ -92,13 +92,9 @@ export default async function LocalePage({
   />
   <div className="absolute inset-0 bg-gradient-to-t from-paper via-paper/70 to-paper/10" />
   <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-20 md:px-10 md:pb-28">
-    <span className="text-sm font-medium tracking-label text-ink md:text-base">
-      {lang === "ru" ? "Северный Кавказ" : "North Caucasus"}
-    </span>
-    <h1 className="mt-4 font-serif text-6xl font-semibold leading-[0.95] text-gold md:text-8xl lg:text-9xl">
-      Kavkaz Hills
-    </h1>
-    <p className="mt-6 max-w-xl text-lg text-ink md:text-xl">
+ <h1 className="sr-only">Kavkaz Hills</h1>
+
+    <p className="mt-6 max-w-xl text-lg text-ink text-shadow-soft md:text-xl">
       {lang === "ru"
         ? "Высоко в горах Кавказа природа всё ещё живёт в своём ритме."
         : "High in the Caucasus, nature still keeps its own time."}
@@ -142,7 +138,7 @@ export default async function LocalePage({
   </section>
 </Reveal>
 
-{/* COLLECTION PREVIEW — те же карточки, что в каталоге */}
+{/* COLLECTION PREVIEW */}
 <Reveal>
   <section id="collection" className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
     <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">

@@ -34,29 +34,29 @@ export default function CataloguePageClient({ locale }: { locale: Locale }) {
     <>
       <Header locale={locale} />
 
-      <main className="mx-auto max-w-350 px-6 py-16 md:px-10 md:py-24">
-        <h1 className="text-display font-medium text-gold">
+      <main className="mx-auto max-w-350 px-6 py-8 md:px-10 md:py-14">
+        <h1 className="text-4xl font-semibold text-gold-gradient md:text-5xl">
           {locale === "ru" ? "Каталог" : "Catalogue"}
         </h1>
 
-        <div className="mt-10 flex flex-wrap gap-6 border-b border-line pb-6">
+        <div className="mt-6 flex flex-wrap gap-x-5 gap-y-1 border-b border-line pb-4">
           {(Object.keys(FILTER_LABELS) as Filter[]).map((key) => (
             <button
               key={key}
               type="button"
               onClick={() => setFilter(key)}
-            className={`px-1 py-2 text-sm tracking-label transition-colors ${
-                filter === key
-                  ? "font-medium text-gold underline underline-offset-4"
-                  : "text-ink-soft hover:text-gold"
-              }`}
+             className={`py-1 text-base font-medium transition-colors ${
+            filter === key
+             ? "text-gold underline underline-offset-4"
+           : "text-ink hover:text-gold"
+        }`}
             >
               {FILTER_LABELS[key][locale]}
             </button>
           ))}
         </div>
 
-        <div className="mt-10">
+        <div className="mt-6">
           <ProductGrid
             products={filteredProducts}
             locale={locale}

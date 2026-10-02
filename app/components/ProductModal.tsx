@@ -59,7 +59,6 @@ export default function ProductModal({
         </div>
 
         <div className="flex w-full flex-col gap-4 p-8 md:w-1/2">
-          <span className="text-xs tracking-label text-ink-soft">SKU: {sku}</span>
           <h2 className="text-2xl font-medium text-ink">{name}</h2>
           <p className="text-sm leading-relaxed text-ink-soft">{description}</p>
 

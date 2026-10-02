@@ -8,9 +8,9 @@
   --color-ink: #f2ece0;
   --color-ink-soft: rgba(242, 236, 224, 0.6);
   --color-line: rgba(255, 255, 255, 0.12);
-  --color-amber: #c8892a;
+  --color-amber: #ffe226;
   --color-amber-soft: #e8c896;
-  --color-gold: #c9a55c;
+  --color-gold: #ffe226;
 
   /* Typography */
   --text-display: clamp(2.5rem, 6vw, 5rem);
@@ -53,7 +53,7 @@
   --text-soft: rgba(245, 245, 245, 0.7);
   --text-muted: rgba(245, 245, 245, 0.46);
 
-  --gold: #d4af37;
+  --gold: #f1c01c;
   --gold-soft: rgba(212, 175, 55, 0.22);
   --gold-glow: rgba(255, 223, 0, 0.12);
 
@@ -1781,7 +1781,6 @@ html {
   }
 
   h3 {
-    font-size: 24px;
     line-height: 1.15;
   }
 
@@ -2030,8 +2029,6 @@ html {
   }
 
   h3 {
-
-    font-size: 24px;
 
   }
 
@@ -2313,4 +2310,14 @@ html {
   color: rgba(245, 245, 245, 0.85);
   background: transparent;
   cursor: default;
+}
+.text-gold-gradient {
+  background: linear-gradient(135deg, #e6cf9a 0%, #c9a96e 45%, #a98650 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-shadow-soft {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
 }

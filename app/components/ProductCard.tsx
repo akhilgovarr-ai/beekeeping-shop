@@ -46,9 +46,9 @@ export default function ProductCard({
         )}
       </div>
 
-      <div className="mt-4 flex flex-col gap-1">
-        <h3 className="text-sm font-medium text-ink">{name}</h3>
-        <span className="mt-2 text-lg font-medium text-gold">
+      <div className="mt-3 flex flex-col gap-1">
+        <h3 className="text-base! font-medium leading-snug text-ink md:text-lg">{name}</h3>
+        <span className="text-base font-medium text-gold">
           {cheapest !== null
             ? `${locale === "ru" ? "от" : "from"} ${cheapest} ₽`
             : locale === "ru"
