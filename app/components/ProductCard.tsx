@@ -3,13 +3,13 @@
 import Image from "next/image";
 import type { Product } from "../../src/types/product";
 import { getProductImage } from "../../src/lib/product-image";
+import { formatPackage, formatPrice } from "../../src/lib/product-format";
 
 type Locale = "ru" | "en";
 
 export default function ProductCard({
   product,
   locale,
-  sku,
   onSelect,
 }: {
   product: Product;
@@ -19,25 +19,22 @@ export default function ProductCard({
 }) {
   const name = product.name[locale];
   const image = getProductImage(product, locale);
-  const cheapest = product.variants.length
-    ? Math.min(...product.variants.map((v) => v.price))
-    : null;
 
   return (
     <button
       type="button"
       onClick={() => onSelect(product)}
-      className="group flex flex-col text-left"
+      className="kh-product"
       aria-label={locale === "ru" ? `Открыть товар: ${name}` : `Open product: ${name}`}
     >
-      <div className="relative aspect-square w-full overflow-hidden bg-line/40">
+      <div className="kh-product-image">
         {image ? (
           <Image
             src={image}
             alt={name}
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="object-contain"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-xs text-ink-soft">
@@ -46,15 +43,19 @@ export default function ProductCard({
         )}
       </div>
 
-      <div className="mt-3 flex flex-col gap-1">
-        <h3 className="text-base! font-medium leading-snug text-ink md:text-lg">{name}</h3>
-        <span className="text-base font-medium text-gold">
-          {cheapest !== null
-            ? `${locale === "ru" ? "от" : "from"} ${cheapest} ₽`
-            : locale === "ru"
-            ? "Цена уточняется"
-            : "Price on request"}
-        </span>
+      <div className="kh-product-info">
+        <h3 className="kh-product-title">{name}</h3>
+        {product.variants.length > 0 ? (
+          product.variants.map((variant) => (
+            <span key={variant.weight} className="kh-product-price">
+              <span>{formatPackage(variant.weight, locale)}</span><span>{formatPrice(variant.price)}</span>
+            </span>
+          ))
+        ) : (
+          <span className="text-base font-medium text-gold">
+            {locale === "ru" ? "Цена уточняется" : "Price on request"}
+          </span>
+        )}
       </div>
     </button>
   );

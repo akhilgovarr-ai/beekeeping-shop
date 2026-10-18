@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useCart } from "./CartContext";
 import { getProductImage } from "../../src/lib/product-image";
+import { formatPackage, formatPrice } from "../../src/lib/product-format";
 import type { Product } from "../../src/types/product";
 
 type Locale = "ru" | "en";
@@ -11,7 +12,6 @@ type Locale = "ru" | "en";
 export default function ProductModal({
   product,
   locale,
-  sku,
   onClose,
 }: {
   product: Product;
@@ -30,11 +30,12 @@ export default function ProductModal({
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-end justify-center bg-paper/60 md:items-center"
+      className="kh-modal-backdrop"
       onClick={onClose}
     >
       <div
-        className="relative flex w-full max-w-3xl flex-col overflow-hidden bg-paper md:flex-row"
+        className="kh-modal"
+        role="dialog" aria-modal="true" aria-labelledby="product-title"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -48,9 +49,9 @@ export default function ProductModal({
           </svg>
         </button>
 
-        <div className="relative aspect-square w-full bg-line/40 md:w-1/2">
+        <div className="kh-modal-photo">
           {image ? (
-            <Image src={image} alt={name} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+            <Image src={image} alt={name} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-xs text-ink-soft">
               {locale === "ru" ? "Фото скоро" : "Photo coming soon"}
@@ -58,8 +59,8 @@ export default function ProductModal({
           )}
         </div>
 
-        <div className="flex w-full flex-col gap-4 p-8 md:w-1/2">
-          <h2 className="text-2xl font-medium text-ink">{name}</h2>
+        <div className="kh-modal-copy">
+          <h2 id="product-title" className="text-2xl font-medium text-ink">{name}</h2>
           <p className="text-sm leading-relaxed text-ink-soft">{description}</p>
 
           {hasVariants ? (
@@ -70,18 +71,19 @@ export default function ProductModal({
                     key={v.weight}
                     type="button"
                     onClick={() => setSelectedIndex(i)}
+                    aria-pressed={i === selectedIndex}
                    className={`border px-4 py-2 text-xs ${
   i === selectedIndex
     ? "border-amber bg-amber text-paper"
     : "border-line text-ink-soft hover:border-amber hover:text-amber"
 }`}
                   >
-                    {v.weight}
+                    {formatPackage(v.weight, locale)} — {formatPrice(v.price)}
                   </button>
                 ))}
               </div>
 
-              <span className="text-2xl font-medium text-ink">{variant?.price} ₽</span>
+              <span className="text-2xl font-medium text-ink">{variant ? formatPrice(variant.price) : null}</span>
 
               <button
                 type="button"
@@ -89,12 +91,12 @@ export default function ProductModal({
                   if (!variant) return;
                   addItem({
                     id: `${product.id}::${variant.weight}`,
-                    name: `${name} (${variant.weight})`,
+                    name: `${name} (${formatPackage(variant.weight, locale)})`,
                     price: variant.price,
                   });
                   onClose();
                 }}
-                className="mt-4 border border-amber px-8 py-3 text-xs tracking-label text-amber transition-colors hover:bg-amber hover:text-paper"
+                className="kh-button kh-add-button"
               >
                 {locale === "ru" ? "Добавить в корзину" : "Add to cart"}
               </button>

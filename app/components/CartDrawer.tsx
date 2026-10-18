@@ -2,6 +2,7 @@
 
 import { useCart } from "./CartContext";
 import { CONTACT } from "../../src/lib/constants";
+import { formatPrice } from "../../src/lib/product-format";
 
 type Locale = "ru" | "en";
 
@@ -14,10 +15,10 @@ function buildOrderMessage(
     locale === "ru" ? "Здравствуйте! Хочу заказать:" : "Hello! I'd like to order:";
   const lines = items.map(
     (item: { name: string; price: number; quantity: number }) =>
-      `— ${item.name} × ${item.quantity} — $${item.price * item.quantity} ₽`
+      `— ${item.name} × ${item.quantity} — ${formatPrice(item.price * item.quantity)}`
   );
   const totalLine =
-    locale === "ru" ? `Итого: $${total} ₽` : `Total: $${total} ₽`;
+    locale === "ru" ? `Итого: ${formatPrice(total)}` : `Total: ${formatPrice(total)}`;
 
   return [intro, ...lines, "", totalLine].join("\n");
 }
@@ -81,7 +82,7 @@ export default function CartDrawer({ locale }: { locale: Locale }) {
                 <li key={item.id} className="flex items-center justify-between gap-4">
                   <div className="flex flex-col gap-1">
                     <span className="text-sm text-ink">{item.name}</span>
-                    <span className="text-xs text-gold">{item.price} ₽</span>
+                    <span className="text-xs text-gold">{formatPrice(item.price)}</span>
                   </div>
 
                   <div className="flex items-center gap-3">
@@ -130,7 +131,7 @@ export default function CartDrawer({ locale }: { locale: Locale }) {
               <span className="text-ink-soft">
                 {locale === "ru" ? "Итого" : "Total"}
               </span>
-              <span className="text-lg font-medium text-gold">{totalPrice} ₽</span>
+              <span className="text-lg font-medium text-gold">{formatPrice(totalPrice)}</span>
             </div>
 
             {whatsappHref && (

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "../globals.css";
+import "../brand.css";
 import { CartProvider } from "../components/CartContext";
 import CartDrawer from "../components/CartDrawer";
 import { Playfair_Display, Inter } from "next/font/google";

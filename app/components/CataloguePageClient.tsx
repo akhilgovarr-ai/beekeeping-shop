@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import { products } from "../../src/data/products";
 import type { Product, ProductCategory } from "../../src/types/product";
 import Header from "./Header";
 import ProductGrid from "./ProductGrid";
 import ProductModal from "./ProductModal";
 import { buildSkuMap } from "../../src/lib/sku";
+import { getCatalogueProducts } from "../../src/lib/product-selection";
 
 type Locale = "ru" | "en";
 type Filter = "all" | ProductCategory;
@@ -17,34 +19,50 @@ const FILTER_LABELS: Record<Filter, { ru: string; en: string }> = {
   "honey-products": { ru: "Из улья", en: "From the Hive" },
   urbech: { ru: "Урбеч", en: "Urbech" },
   tea: { ru: "Чай", en: "Tea" },
-  candles: { ru: "Свечи", en: "Candles" },
   "gift-sets": { ru: "Наборы", en: "Gift Sets" },
+  candles: { ru: "Свечи", en: "Candles" },
 };
 
-export default function CataloguePageClient({ locale }: { locale: Locale }) {
+export default function CataloguePageClient({ locale, selectedSlug }: {
+  locale: Locale;
+  selectedSlug?: string;
+}) {
+  const router = useRouter();
   const [filter, setFilter] = useState<Filter>("all");
-  const [selected, setSelected] = useState<Product | null>(null);
+  const selected = products.find((product) => product.slug === selectedSlug);
+  const catalogue = useMemo(() => getCatalogueProducts(products), []);
+
+  function selectProduct(product: Product | null) {
+    const url = new URL(window.location.href);
+    if (product) url.searchParams.set("product", product.slug);
+    else url.searchParams.delete("product");
+    const href = `${url.pathname}${url.search}${url.hash}`;
+    if (product) router.push(href, { scroll: false });
+    else router.replace(href, { scroll: false });
+  }
  
   const skuMap = useMemo(() => buildSkuMap(products), []);
 
   const filteredProducts =
-    filter === "all" ? products : products.filter((p) => p.category === filter);
+    filter === "all" ? catalogue : catalogue.filter((p) => p.category === filter);
 
   return (
     <>
       <Header locale={locale} />
 
-      <main className="mx-auto max-w-350 px-6 py-8 md:px-10 md:py-14">
-        <h1 className="text-4xl font-semibold text-gold-gradient md:text-5xl">
+      <main className="kh-catalogue kh-section">
+        <p className="kh-eyebrow">Kavkaz Hills / {locale === "ru" ? "Коллекция" : "Collection"}</p>
+        <h1 className="kh-catalogue-title">
           {locale === "ru" ? "Каталог" : "Catalogue"}
         </h1>
 
-        <div className="mt-6 flex flex-wrap gap-x-5 gap-y-1 border-b border-line pb-4">
+        <div className="kh-filters">
           {(Object.keys(FILTER_LABELS) as Filter[]).map((key) => (
             <button
               key={key}
               type="button"
               onClick={() => setFilter(key)}
+              aria-pressed={filter === key}
              className={`py-1 text-base font-medium transition-colors ${
             filter === key
              ? "text-gold underline underline-offset-4"
@@ -56,22 +74,24 @@ export default function CataloguePageClient({ locale }: { locale: Locale }) {
           ))}
         </div>
 
-        <div className="mt-6">
+        <div className="kh-catalogue-grid">
           <ProductGrid
+            key={filter}
             products={filteredProducts}
             locale={locale}
             skuMap={skuMap}
-            onSelect={setSelected}
+            onSelect={selectProduct}
           />
         </div>
       </main>
 
       {selected && (
         <ProductModal
+          key={selected.id}
           product={selected}
           locale={locale}
           sku={skuMap.get(selected.id) ?? ""}
-          onClose={() => setSelected(null)}
+          onClose={() => selectProduct(null)}
         />
       )}
     </>

@@ -1,273 +1,41 @@
-import { notFound } from "next/navigation";
-import {
-
-  type Locale,
-
-} from "../../src/i18n/dictionaries";
-import { products } from "../../src/data/products";
 import Image from "next/image";
-import { redirect } from "next/navigation";
-import Reveal from "../components/Reveal";
-import PreviewGrid from "../components/PreviewGrid";
+import { notFound } from "next/navigation";
 import Header from "../components/Header";
+import PreviewGrid from "../components/PreviewGrid";
+import Reveal from "../components/Reveal";
 
-const locales = ["en", "ru"] as const;
-
-const categoryLabels = {
-
-  en: {
-
-    tea: "Tea",
-
-    urbech: "Urbech",
-
-    honey: "Honey",
-
-    "honey-products": "From the Hive",
-
-  },
-
-  ru: {
-
-    tea: "Чай",
-
-    urbech: "Урбеч",
-
-    honey: "Мёд",
-
-    "honey-products": "Из улья",
-
-  },
-
-} as const;
-
-export default async function LocalePage({
-
-  params,
-
-}: {
-
-  params: Promise<{ locale: string }>;
-
-}) {
-
+export default async function LocalePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-
-  if (!locales.includes(locale as Locale)) {
-
-    notFound();
-
-  }
-
-  const lang = locale as Locale;
-
- const localizedProducts = products.map((product) => ({
-  ...product,
-  content: {
-    name: product.name[lang],
-    description: product.shortDescription[lang],
-  },
-  image: `/images/${product.category}/${lang}/${product.imageName}`,
-}));
-
+  if (locale !== "ru" && locale !== "en") notFound();
+  const ru = locale === "ru";
   return (
-
-    <main className="site-main">
-      
-     <Header locale={lang} />
-      {/* HERO */}
-
-     <section className="relative flex min-h-[92vh] items-end overflow-hidden bg-ink">
-  <Image
-    src="/images/beekeepers/IMG_9428.JPG"
-    alt={
-      lang === "en"
-        ? "Founder and head beekeeper of Kavkaz Hills"
-        : "Основатель и главный пчеловод Kavkaz Hills"
-    }
-    fill
-    priority
-    sizes="100vw"
-    className="object-cover opacity-90"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-paper via-paper/70 to-paper/10" />
-  <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-20 md:px-10 md:pb-28">
- <h1 className="sr-only">Kavkaz Hills</h1>
-
-    <p className="mt-6 max-w-xl text-lg text-ink text-shadow-soft md:text-xl">
-      {lang === "ru"
-        ? "Высоко в горах Кавказа природа всё ещё живёт в своём ритме."
-        : "High in the Caucasus, nature still keeps its own time."}
-    </p>
-    <div className="mt-10 flex flex-wrap items-center gap-4">
-      <a
-        href="#collection"
-        className="border border-gold bg-paper/40 px-10 py-4 text-sm font-medium tracking-label text-gold transition-colors hover:bg-gold hover:text-paper md:text-base"
-      >
-        {lang === "ru" ? "Смотреть коллекцию" : "View collection"}
-      </a>
-      <a
-        href="#manifesto"
-        className="px-6 py-4 text-sm font-medium tracking-label text-ink underline decoration-gold underline-offset-8 transition-colors hover:text-gold md:text-base"
-      >
-        {lang === "ru" ? "Наша история" : "Our story"}
-      </a>
-    </div>
-  </div>
-</section>
-
-{/* ABOUT */}
-<Reveal>
-  <section id="about" className="mx-auto max-w-350 px-6 py-24 md:px-10 md:py-32">
-    <div className="relative aspect-[4/3] w-full overflow-hidden bg-line/40 md:aspect-[21/9]">
-      <Image
-        src="/images/beekeepers/IMG_9620.JPG"
-        alt={
-          lang === "en"
-            ? "Kavkaz Hills beekeeper at the apiary"
-            : "Пчеловод Kavkaz Hills на пасеке"
-        }
-        fill
-        sizes="100vw"
-        className="object-cover"
-      />
-    </div>
-    <p className="mt-6 text-sm text-ink-soft">
-      {lang === "ru" ? "Пчеловод Kavkaz Hills на пасеке." : "Kavkaz Hills beekeeper at the apiary."}
-    </p>
-  </section>
-</Reveal>
-
-{/* COLLECTION PREVIEW */}
-<Reveal>
-  <section id="collection" className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
-    <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-      <div>
-        <span className="text-xs tracking-label text-ink-soft">
-          {lang === "ru" ? "Коллекция" : "Collection"}
-        </span>
-        <h2 className="mt-3 text-heading font-medium text-ink">
-          {lang === "ru" ? "Выберите свой продукт" : "Choose your product"}
-        </h2>
-      </div>
-      <a
-        href={`/${lang}/catalogue`}
-        className="text-sm text-ink underline underline-offset-4"
-      >
-        {lang === "ru" ? "Весь каталог →" : "Full catalogue →"}
-      </a>
-    </div>
-
-    <div className="mt-10">
-      <PreviewGrid locale={lang} />
-      </div>
-     </section>
-    </Reveal>
-            
-      {/* CONTACT / FOOTER */}
-
-      <footer className="site-footer" id="contact">
-
-        <div className="section-gold-line" />
-
-        <div className="footer-main">
-
-          <div className="footer-intro">
-
-            <p className="section-kicker">
-
-              {lang === "en"
-
-                ? "Kavkaz Hills"
-
-                : "Kavkaz Hills"}
-
-            </p>
-
+    <>
+      <Header locale={locale} />
+      <main className="kh-home">
+        <section className="kh-hero">
+          <div className="kh-hero-copy">
+            <p className="kh-eyebrow">{ru ? "Рождённое в горах" : "Born in the mountains"}</p>
+            <h1>{ru ? "Энергия гор." : "Energy of the mountains."}<em>{ru ? "Душа Кавказа." : "Soul of the Caucasus."}</em></h1>
+            <p className="kh-intro">{ru ? "Мёд, урбеч и чай. Коллекция вкусов Kavkaz Hills с характером Северного Кавказа." : "Honey, urbech and tea. The Kavkaz Hills collection, with the character of the North Caucasus."}</p>
+            <div className="kh-actions"><a className="kh-button" href={`/${locale}/catalogue`}>{ru ? "Выбрать свой вкус" : "Explore the collection"}<span aria-hidden="true">↗</span></a><a className="kh-text-link" href="#about">{ru ? "Наше происхождение" : "Our origin"}</a></div>
+            <div className="kh-hero-note"><span> KAVKAZ HILLS </span><span>{ru ? "Природа. Люди. Ремесло." : "Nature. People. Craft."}</span></div>
           </div>
-
-          <div className="footer-order">
-
-            <p>
-
-              {lang === "en"
-
-                ? "For orders, wholesale enquiries or simply to learn more about our products, contact us directly."
-
-                : "Чтобы сделать заказ, обсудить оптовое сотрудничество или узнать больше о продукции, свяжитесь с нами напрямую."}
-
-            </p>
-
-            <div className="footer-contact-buttons">
-
-              <a
-
-                href="#"
-
-                className="footer-contact-button"
-
-              >
-
-                WhatsApp
-
-                <span>↗</span>
-
-              </a>
-
-              <a
-
-                href="#"
-
-                className="footer-contact-button"
-
-              >
-
-                Telegram
-
-                <span>↗</span>
-
-              </a>
-
-              <a
-
-                href="mailto:hello@kavkazhills.com"
-
-                className="footer-contact-button"
-
-              >
-
-                Email
-
-                <span>↗</span>
-
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div className="footer-bottom">
-
-          <span>© 2026 Kavkaz Hills</span>
-
-          <span>
-
-            {lang === "en"
-
-              ? "Energy of the mountains. Soul of the Caucasus."
-
-              : "Энергия гор. Душа Кавказа."}
-
-          </span>
-
-        </div>
-
+          <div className="kh-hero-photo"><Image src="/images/beekeepers/IMG_9428.JPG" alt={ru ? "Пчеловод Kavkaz Hills с рамкой на пасеке" : "Kavkaz Hills beekeeper holding a frame at the apiary"} fill priority sizes="(max-width: 760px) 100vw, 50vw" /><span className="kh-photo-caption">{ru ? "Из жизни пасеки" : "Life at the apiary"}</span></div>
+        </section>
+        <Reveal><section id="collection" className="kh-section">
+          <div className="kh-section-heading"><div><p className="kh-eyebrow">{ru ? "Знакомство с коллекцией" : "An introduction"}</p><h2>{ru ? "Начните с мёда." : "Begin with honey."}</h2></div><a className="kh-text-link" href={`/${locale}/catalogue`}>{ru ? "Вся коллекция" : "Full collection"} <span aria-hidden="true">↗</span></a></div>
+          <p className="kh-section-intro">{ru ? "Четыре сорта мёда и продолжение коллекции: продукты улья, урбеч и чай." : "Four honey varieties, followed by products from the hive, urbech and tea."}</p>
+          <PreviewGrid locale={locale} />
+        </section></Reveal>
+        <Reveal><section id="about" className="kh-origin kh-section">
+          <div className="kh-origin-photo"><Image src="/images/beekeepers/IMG_9620.JPG" alt={ru ? "Пчеловод Kavkaz Hills на пасеке" : "Kavkaz Hills beekeeper at the apiary"} fill sizes="(max-width: 760px) 100vw, 50vw" /></div>
+          <div className="kh-origin-copy"><p className="kh-eyebrow">{ru ? "Наше происхождение" : "Our origin"}</p><h2>{ru ? "За каждым вкусом —" : "Behind every flavour,"}<em>{ru ? "люди и земля." : "people and a place."}</em></h2><p>{ru ? "Высоко в горах Кавказа природа всё ещё живёт в своём ритме. В нашей коллекции встречаются мёд, традиционный урбеч и чай — разные способы познакомиться со вкусами региона." : "High in the Caucasus, nature still keeps its own time. Honey, traditional urbech and tea come together in our collection — different ways to discover the flavours of the region."}</p><span className="kh-origin-signature">Kavkaz Hills</span></div>
+        </section></Reveal>
+      </main>
+      <footer id="contact" className="kh-footer">
+        <div className="kh-footer-main"><div><p className="kh-eyebrow">{ru ? "Остаёмся на связи" : "Stay in touch"}</p><h2>{ru ? "Выбор начинается" : "A conversation"}<em>{ru ? "с разговора." : "is a beginning."}</em></h2></div><div className="kh-footer-contact"><p>{ru ? "Вопрос о продукте, подарок или оптовый заказ — напишите нам." : "A product question, a gift or a wholesale enquiry — write to us."}</p><a className="kh-text-link" href="mailto:hello@kavkazhills.com">hello@kavkazhills.com ↗</a></div></div>
+        <div className="kh-footer-bottom"><span className="kh-wordmark">KAVKAZ HILLS</span><span>© 2026 Kavkaz Hills</span><span>{ru ? "Энергия гор. Душа Кавказа." : "Energy of the mountains. Soul of the Caucasus."}</span></div>
       </footer>
-
-    </main>
-
+    </>
   );
-
 }
