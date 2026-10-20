@@ -79,13 +79,13 @@ export default function CartDrawer({ locale }: { locale: Locale }) {
           ) : (
             <ul className="flex flex-col gap-6">
               {items.map((item) => (
-                <li key={item.id} className="flex items-center justify-between gap-4">
-                  <div className="flex flex-col gap-1">
+                <li key={item.id} className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+                  <div className="flex min-w-0 flex-col gap-1 break-words">
                     <span className="text-sm text-ink">{item.name}</span>
                     <span className="text-xs text-gold">{formatPrice(item.price)}</span>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex shrink-0 items-center gap-3">
                     <div className="flex items-center border border-line">
                       <button
                         type="button"
@@ -126,7 +126,7 @@ export default function CartDrawer({ locale }: { locale: Locale }) {
         </div>
 
         {items.length > 0 && (
-          <div className="flex flex-col gap-4 border-t border-line px-6 py-6">
+          <div className="flex flex-col gap-4 border-t border-line px-6 pt-6 pb-[calc(24px+env(safe-area-inset-bottom))]">
             <div className="flex items-center justify-between text-sm">
               <span className="text-ink-soft">
                 {locale === "ru" ? "Итого" : "Total"}
