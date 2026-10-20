@@ -9,19 +9,11 @@ import ProductGrid from "./ProductGrid";
 import ProductModal from "./ProductModal";
 import { buildSkuMap } from "../../src/lib/sku";
 import { getCatalogueProducts } from "../../src/lib/product-selection";
+import { categories } from "../../src/data/categories";
+import { dictionaries } from "../../src/i18n/dictionaries";
 
 type Locale = "ru" | "en";
 type Filter = "all" | ProductCategory;
-
-const FILTER_LABELS: Record<Filter, { ru: string; en: string }> = {
-  all: { ru: "Всё", en: "All" },
-  honey: { ru: "Мёд", en: "Honey" },
-  "honey-products": { ru: "Из улья", en: "From the Hive" },
-  urbech: { ru: "Урбеч", en: "Urbech" },
-  tea: { ru: "Чай", en: "Tea" },
-  "gift-sets": { ru: "Наборы", en: "Gift Sets" },
-  candles: { ru: "Свечи", en: "Candles" },
-};
 
 export default function CataloguePageClient({ locale, selectedSlug }: {
   locale: Locale;
@@ -29,6 +21,8 @@ export default function CataloguePageClient({ locale, selectedSlug }: {
 }) {
   const router = useRouter();
   const [filter, setFilter] = useState<Filter>("all");
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const t = dictionaries[locale].catalogue;
   const selected = products.find((product) => product.slug === selectedSlug);
   const catalogue = useMemo(() => getCatalogueProducts(products), []);
 
@@ -56,32 +50,38 @@ export default function CataloguePageClient({ locale, selectedSlug }: {
           {locale === "ru" ? "Каталог" : "Catalogue"}
         </h1>
 
-        <div className="kh-filters">
-          {(Object.keys(FILTER_LABELS) as Filter[]).map((key) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => setFilter(key)}
-              aria-pressed={filter === key}
-             className={`py-1 text-base font-medium transition-colors ${
-            filter === key
-             ? "text-gold underline underline-offset-4"
-           : "text-ink hover:text-gold"
-        }`}
-            >
-              {FILTER_LABELS[key][locale]}
-            </button>
-          ))}
-        </div>
+        <section className="kh-category-picker" aria-label={t.showCategories}>
+          <button type="button" className="kh-category-toggle"
+            aria-expanded={categoriesOpen} aria-controls="catalogue-categories"
+            onClick={() => setCategoriesOpen(open => !open)}>
+            <span>{categoriesOpen ? t.hideCategories : t.showCategories}</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+          </button>
+          <div id="catalogue-categories" className="kh-category-collapse"
+            data-open={categoriesOpen} inert={!categoriesOpen} aria-hidden={!categoriesOpen}>
+            <div className="kh-category-overflow">
+              <div className="kh-category-options">
+                <button type="button" aria-pressed={filter === "all"} onClick={() => setFilter("all")}>{t.all}</button>
+                {categories.map(category => (
+                  <button key={category.id} type="button" aria-pressed={filter === category.id}
+                    onClick={() => setFilter(category.id)}>{category.name[locale]}</button>
+                ))}
+              </div>
+            </div>
+          </div>
+          <p className="kh-category-current" aria-live="polite">
+            {filter === "all" ? t.all : categories.find(category => category.id === filter)?.name[locale]}
+          </p>
+        </section>
 
         <div className="kh-catalogue-grid">
-          <ProductGrid
+          {filteredProducts.length ? <ProductGrid
             key={filter}
             products={filteredProducts}
             locale={locale}
             skuMap={skuMap}
             onSelect={selectProduct}
-          />
+          /> : <p className="kh-catalogue-empty" role="status">{t.comingSoon}</p>}
         </div>
       </main>
 

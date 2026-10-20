@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Header from "../components/Header";
+import Hero from "../components/Hero";
 import PreviewGrid from "../components/PreviewGrid";
 import Reveal from "../components/Reveal";
 
@@ -12,16 +13,7 @@ export default async function LocalePage({ params }: { params: Promise<{ locale:
     <>
       <Header locale={locale} />
       <main className="kh-home">
-        <section className="kh-hero">
-          <div className="kh-hero-copy">
-            <p className="kh-eyebrow">{ru ? "Рождённое в горах" : "Born in the mountains"}</p>
-            <h1>{ru ? "Энергия гор." : "Energy of the mountains."}<em>{ru ? "Душа Кавказа." : "Soul of the Caucasus."}</em></h1>
-            <p className="kh-intro">{ru ? "Мёд, урбеч и чай. Коллекция вкусов Kavkaz Hills с характером Северного Кавказа." : "Honey, urbech and tea. The Kavkaz Hills collection, with the character of the North Caucasus."}</p>
-            <div className="kh-actions"><a className="kh-button" href={`/${locale}/catalogue`}>{ru ? "Выбрать свой вкус" : "Explore the collection"}<span aria-hidden="true">↗</span></a><a className="kh-text-link" href="#about">{ru ? "Наше происхождение" : "Our origin"}</a></div>
-            <div className="kh-hero-note"><span> KAVKAZ HILLS </span><span>{ru ? "Природа. Люди. Ремесло." : "Nature. People. Craft."}</span></div>
-          </div>
-          <div className="kh-hero-photo"><Image src="/images/beekeepers/IMG_9428.JPG" alt={ru ? "Пчеловод Kavkaz Hills с рамкой на пасеке" : "Kavkaz Hills beekeeper holding a frame at the apiary"} fill priority sizes="(max-width: 760px) 100vw, 50vw" /><span className="kh-photo-caption">{ru ? "Из жизни пасеки" : "Life at the apiary"}</span></div>
-        </section>
+        <Hero locale={locale} />
         <Reveal><section id="collection" className="kh-section">
           <div className="kh-section-heading"><div><p className="kh-eyebrow">{ru ? "Знакомство с коллекцией" : "An introduction"}</p><h2>{ru ? "Начните с мёда." : "Begin with honey."}</h2></div><a className="kh-text-link" href={`/${locale}/catalogue`}>{ru ? "Вся коллекция" : "Full collection"} <span aria-hidden="true">↗</span></a></div>
           <p className="kh-section-intro">{ru ? "Четыре сорта мёда и продолжение коллекции: продукты улья, урбеч и чай." : "Four honey varieties, followed by products from the hive, urbech and tea."}</p>

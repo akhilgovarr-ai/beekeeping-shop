@@ -1,5 +1,18 @@
 export const dictionaries = {
   en: {
+    catalogue: {
+      showCategories: "Show all categories", hideCategories: "Hide categories",
+      all: "All products", comingSoon: "Coming soon",
+    },
+    header: {
+      home: "Kavkaz Hills — home", call: "Call us", locations: "Sales locations",
+      menu: "Menu", close: "Close panel", catalogue: "Catalogue",
+      delivery: "Delivery and payment", cart: "Cart", story: "Our story",
+      language: "Language", hours: "Opening hours", phone: "Russian phone number",
+      missing: "Details will be added", whatsapp: "WhatsApp",
+      noLocations: "Sales locations will be added.",
+      deliveryPending: "Delivery and payment terms will be added.",
+    },
     nav: {
       collection: "Collection",
       origin: "Our origin",
@@ -9,6 +22,8 @@ export const dictionaries = {
     },
 
     hero: {
+      headline: "Natural bee products",
+      catalogueCta: "Go to catalogue",
       eyebrow: "North Caucasus",
       titleLine1: "Energy of",
       titleLine2: " the mountains.",
@@ -21,6 +36,19 @@ export const dictionaries = {
   },
 
   ru: {
+    catalogue: {
+      showCategories: "Показать все категории", hideCategories: "Скрыть категории",
+      all: "Все товары", comingSoon: "Скоро в продаже",
+    },
+    header: {
+      home: "Kavkaz Hills — главная", call: "Позвонить", locations: "Точки продаж",
+      menu: "Меню", close: "Закрыть панель", catalogue: "Каталог",
+      delivery: "Доставка и оплата", cart: "Корзина", story: "История",
+      language: "Язык", hours: "Режим работы", phone: "Российский номер",
+      missing: "Данные будут добавлены", whatsapp: "WhatsApp",
+      noLocations: "Точки продаж будут добавлены.",
+      deliveryPending: "Условия доставки и оплаты будут добавлены.",
+    },
     nav: {
       collection: "Коллекция",
       origin: "Происхождение",
@@ -30,6 +58,8 @@ export const dictionaries = {
     },
 
     hero: {
+      headline: "Натуральные пчелопродукты",
+      catalogueCta: "Перейти в каталог",
       eyebrow: "Северный Кавказ",
       titleLine1: "Энергия",
       titleLine2: " гор.",
