@@ -39,10 +39,6 @@ export default async function LocalePage({ params }: { params: Promise<{ locale:
           <div className="kh-origin-copy"><p className="kh-eyebrow">{ru ? "Наше происхождение" : "Our origin"}</p><h2>{ru ? "За каждым вкусом —" : "Behind every flavour,"}<em>{ru ? "люди и земля." : "people and a place."}</em></h2><p>{ru ? "Высоко в горах Кавказа природа всё ещё живёт в своём ритме. В нашей коллекции встречаются мёд, традиционный урбеч и чай — разные способы познакомиться со вкусами региона." : "High in the Caucasus, nature still keeps its own time. Honey, traditional urbech and tea come together in our collection — different ways to discover the flavours of the region."}</p><span className="kh-origin-signature">Kavkaz Hills</span></div>
         </section></Reveal>
       </main>
-      <footer id="contact" className="kh-footer">
-        <div className="kh-footer-main"><div><p className="kh-eyebrow">{ru ? "Остаёмся на связи" : "Stay in touch"}</p><h2>{ru ? "Выбор начинается" : "A conversation"}<em>{ru ? "с разговора." : "is a beginning."}</em></h2></div><div className="kh-footer-contact"><p>{ru ? "Вопрос о продукте, подарок или оптовый заказ — напишите нам." : "A product question, a gift or a wholesale enquiry — write to us."}</p><a className="kh-text-link" href="mailto:hello@kavkazhills.com">hello@kavkazhills.com ↗</a></div></div>
-        <div className="kh-footer-bottom"><span className="kh-wordmark">KAVKAZ HILLS</span><span>© 2026 Kavkaz Hills</span><span>{ru ? "Энергия гор. Душа Кавказа." : "Energy of the mountains. Soul of the Caucasus."}</span></div>
-      </footer>
     </>
   );
 }

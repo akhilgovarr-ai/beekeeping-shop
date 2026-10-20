@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import "../brand.css";
 import { CartProvider } from "../components/CartContext";
 import CartDrawer from "../components/CartDrawer";
+import FloatingCart from "../components/FloatingCart";
+import Footer from "../components/Footer";
 import { Playfair_Display, Inter } from "next/font/google";
 
 const playfair = Playfair_Display({
@@ -19,6 +21,7 @@ const inter = Inter({
 });
 
 const locales = ["en", "ru"] as const;
+export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
 type Locale = (typeof locales)[number];
 
 const siteContent = {
@@ -80,6 +83,8 @@ export default async function LocaleLayout({
     <body>
       <CartProvider>
         {children}
+        <Footer />
+        <FloatingCart locale={locale as "ru" | "en"} />
         <CartDrawer locale={locale as "ru" | "en"} />
       </CartProvider>
     </body>
