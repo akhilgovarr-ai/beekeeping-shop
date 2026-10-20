@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import PreviewGrid from "../components/PreviewGrid";
 import Reveal from "../components/Reveal";
+import Reviews from "../components/Reviews";
 import { whyUs } from "../../src/data/why-us";
 
 export default async function LocalePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -27,6 +28,7 @@ export default async function LocalePage({ params }: { params: Promise<{ locale:
             ))}
           </div>
         </section>
+        <Reviews locale={locale} />
         <Reveal><section id="collection" className="kh-section">
           <div className="kh-section-heading"><div><p className="kh-eyebrow">{ru ? "Знакомство с коллекцией" : "An introduction"}</p><h2>{ru ? "Начните с мёда." : "Begin with honey."}</h2></div><a className="kh-text-link" href={`/${locale}/catalogue`}>{ru ? "Вся коллекция" : "Full collection"} <span aria-hidden="true">↗</span></a></div>
           <p className="kh-section-intro">{ru ? "Четыре сорта мёда и продолжение коллекции: продукты улья, урбеч и чай." : "Four honey varieties, followed by products from the hive, urbech and tea."}</p>
