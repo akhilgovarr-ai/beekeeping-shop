@@ -1,7 +1,7 @@
 /* Kavkaz Hills: black, metallic gold, real photography and quiet typography. */
 :root {
-  --kh-gold: #d2b574;
-  --kh-gold-metal: linear-gradient(115deg, #a88743 0%, #d5b875 19%, #f5e6b7 34%, #bd9850 49%, #e4ca8a 66%, #fff0c4 79%, #b4924e 100%);
+  --kh-gold: #d9bd7e;
+  --kh-gold-metal: linear-gradient(115deg, #b18f4c 0%, #dcc080 19%, #f7eabd 34%, #c5a15a 49%, #e9d193 66%, #fff2cc 79%, #bd9b58 100%);
   --kh-ink: #eee8dc; --kh-muted: #aaa69d; --kh-line: #c6a66a30;
 }
 html { scroll-padding-top: 140px; }
