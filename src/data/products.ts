@@ -6,6 +6,7 @@ export const products: Product[] = [
     id: "apricot-kernel",
     slug: "apricot-kernel",
     category: "urbech",
+    hasDeclaration: false,
     name: { ru: "Абрикосовая косточка", en: "Apricot Kernel Urbech" },
     shortDescription: {
       ru: "Традиционный урбеч из ядер абрикосовой косточки.",
@@ -19,6 +20,7 @@ export const products: Product[] = [
     id: "flax-seed",
     slug: "flax-seed",
     category: "urbech",
+    hasDeclaration: false,
     name: { ru: "Тёмный лён", en: "Dark Flax Urbech" },
     shortDescription: {
       ru: "Традиционный урбеч из семян тёмного льна.",
@@ -32,6 +34,7 @@ export const products: Product[] = [
     id: "sweet-almond",
     slug: "sweet-almond",
     category: "urbech",
+    hasDeclaration: false,
     name: { ru: "Миндаль", en: "Sweet Almond Urbech" },
     shortDescription: { ru: "Нежный урбеч из сладкого миндаля.", en: "Smooth urbech made from sweet almonds." },
     variants: [{ weight: "150 г", price: 650 }],
@@ -42,6 +45,7 @@ export const products: Product[] = [
     id: "hemp-seed",
     slug: "hemp-seed",
     category: "urbech",
+    hasDeclaration: false,
     name: { ru: "Конопля", en: "Hemp Seed Urbech" },
     shortDescription: { ru: "Урбеч из семян конопли.", en: "Urbech made from hemp seeds." },
     variants: [{ weight: "150 г", price: 550 }],
@@ -54,6 +58,7 @@ export const products: Product[] = [
     id: "bee-bread",
     slug: "bee-bread",
     category: "honey-products",
+    hasDeclaration: false,
     name: { ru: "Перга", en: "Bee Bread" },
     shortDescription: {
       ru: "Пыльца, преобразованная внутри улья — один из самых ценных запасов пчелиной семьи.",
@@ -70,6 +75,7 @@ export const products: Product[] = [
     id: "pollen",
     slug: "pollen",
     category: "honey-products",
+    hasDeclaration: false,
     name: { ru: "Пчелиная пыльца", en: "Bee Pollen" },
     shortDescription: {
       ru: "Собрана цветок за цветком — хранит разнообразие горного разнотравья.",
@@ -86,6 +92,7 @@ export const products: Product[] = [
     id: "propolis",
     slug: "propolis",
     category: "honey-products",
+    hasDeclaration: false,
     name: { ru: "Прополис", en: "Propolis" },
     shortDescription: {
       ru: "Природное вещество, которым пчёлы защищают и сохраняют жизнь улья. Формат «сигары» — для точной дозировки.",
@@ -102,6 +109,7 @@ export const products: Product[] = [
     id: "royal-jelly",
     slug: "royal-jelly",
     category: "honey-products",
+    hasDeclaration: false,
     name: { ru: "Маточное молочко с пергой и мёдом", en: "Royal Jelly with Bee Bread and Honey" },
     shortDescription: {
       ru: "Самый концентрированный продукт улья — курсовой приём для восстановления и поддержки организма.",
@@ -117,6 +125,7 @@ export const products: Product[] = [
     id: "kalmyk-tea",
     slug: "kalmyk-tea",
     category: "tea",
+    hasDeclaration: false,
     name: { ru: "Калмыцкий чай", en: "Kalmyk Tea" },
     shortDescription: {
       ru: "Традиционный чай, в котором сохранились ритуал и культура гостеприимства Кавказа.",
@@ -133,6 +142,7 @@ export const products: Product[] = [
     id: "minisota-tea",
     slug: "minisota-tea",
     category: "tea",
+    hasDeclaration: false,
     name: { ru: "Минисота (травяной сбор)", en: "Minisota Herbal Blend" },
     shortDescription: {
       ru: "Мягкий травяной сбор для повседневного чаепития.",
@@ -148,6 +158,7 @@ export const products: Product[] = [
     id: "buckwheat-honey",
     slug: "buckwheat-honey",
     category: "honey",
+    hasDeclaration: true,
     name: { ru: "Гречишный мёд", en: "Buckwheat Honey" },
     shortDescription: {
       ru: "Насыщенный тёмный мёд с мягким обжаренным характером.",
@@ -166,6 +177,7 @@ export const products: Product[] = [
     id: "goldenrod-honey",
     slug: "goldenrod-honey",
     category: "honey",
+    hasDeclaration: true,
     name: { ru: "Мёд из золотарника", en: "Goldenrod Honey" },
     shortDescription: {
       ru: "Светлый, с лёгкой пряной нотой горного разнотравья.",
@@ -184,6 +196,7 @@ export const products: Product[] = [
     id: "wildflower-honey",
     slug: "wildflower-honey",
     category: "honey",
+    hasDeclaration: true,
     name: { ru: "Разнотравный мёд", en: "Wildflower Honey" },
     shortDescription: {
       ru: "Собран с высокогорного разнотравья — мягкий и цветочный.",
@@ -202,6 +215,7 @@ export const products: Product[] = [
     id: "mountain-linden-honey",
     slug: "mountain-linden-honey",
     category: "honey",
+    hasDeclaration: true,
     name: { ru: "Горный липовый мёд", en: "Mountain Linden Honey" },
     shortDescription: {
       ru: "Классический липовый мёд с мягкой сладостью и лёгкой ментоловой свежестью.",
@@ -220,6 +234,7 @@ export const products: Product[] = [
     id: "mountain-spurge-honey",
     slug: "mountain-spurge-honey",
     category: "honey",
+    hasDeclaration: true,
     name: { ru: "Горный молочаевый мёд", en: "Mountain Spurge Honey" },
     shortDescription: {
       ru: "Редкий сорт с плотной текстурой и глубоким, насыщенным вкусом.",
@@ -238,6 +253,7 @@ export const products: Product[] = [
     id: "honeycomb-honey",
     slug: "honeycomb-honey",
     category: "honey",
+    hasDeclaration: true,
     name: { ru: "Сотовый мёд", en: "Honeycomb Honey" },
     shortDescription: {
       ru: "Натуральный мёд прямо в сотах — редкая, самая нетронутая форма мёда.",
@@ -253,6 +269,7 @@ export const products: Product[] = [
     id: "beeswax-candles",
     slug: "beeswax-candles",
     category: "candles",
+    hasDeclaration: false,
     name: { ru: "Свечи из вощины", en: "Beeswax Candles" },
     shortDescription: {
       ru: "Ручная скрутка, натуральный воск с пасеки. Чистое горение и лёгкий медовый аромат.",
@@ -268,6 +285,7 @@ export const products: Product[] = [
     id: "gift-set-large",
     slug: "gift-set-large",
     category: "gift-sets",
+    hasDeclaration: false,
     name: { ru: "Kavkaz Hills — большой бокс", en: "Kavkaz Hills — Large Box" },
     shortDescription: {
       ru: "Собранная коллекция пасеки в одной коробке: пыльца, перга, чай, прополис, мёд — 4 банки, свеча, веретено.",
@@ -281,6 +299,7 @@ export const products: Product[] = [
     id: "gift-set-medium",
     slug: "gift-set-medium",
     category: "gift-sets",
+    hasDeclaration: false,
     name: { ru: "Корзина средняя", en: "Medium Gift Basket" },
     shortDescription: {
       ru: "Мёд — 2 банки, чай, пыльца, свеча.",
@@ -294,6 +313,7 @@ export const products: Product[] = [
     id: "gift-set-small",
     slug: "gift-set-small",
     category: "gift-sets",
+    hasDeclaration: false,
     name: { ru: "Корзина малая", en: "Small Gift Basket" },
     shortDescription: {
       ru: "Мёд — 2 банки (по наличию), чай, свеча.",

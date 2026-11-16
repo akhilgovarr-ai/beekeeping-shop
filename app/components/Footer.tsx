@@ -1,4 +1,5 @@
 import { contacts } from "../../src/config/contacts";
+import { declarationUrl, quality } from "../../src/data/quality";
 
 import { dictionaries, type Locale } from "../../src/i18n/dictionaries";
 
@@ -21,6 +22,7 @@ export default function Footer({ locale }: { locale: Locale }) {
       </div>
       <a className="kh-footer-phone" href={contacts.phoneHref} aria-label={`${t.call}: ${contacts.russianPhone}`}>{contacts.russianPhone}</a>
       <p className="kh-footer-hours">{t.hours}<br />{contacts.workingHours[locale]}</p>
+      <a className="kh-declaration-link" href={declarationUrl} target="_blank" rel="noopener noreferrer">{quality[locale].footerLink}</a>
     </footer>
   );
 }

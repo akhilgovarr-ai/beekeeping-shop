@@ -25,5 +25,6 @@ export interface Product {
   variants: ProductVariant[];
   imageName: string;
   available: boolean;
+  hasDeclaration: boolean;
   featured?: boolean;
 }
