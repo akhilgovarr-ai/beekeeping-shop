@@ -238,3 +238,38 @@ button { cursor: pointer; }
 .kh-why-us-grid p { color: var(--kh-muted); font-size: 14px; line-height: 1.9; max-width: 34ch; }
 @media (max-width: 1100px) { .kh-why-us-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 40px; } }
 @media (max-width: 600px) { .kh-why-us-grid { grid-template-columns: 1fr; gap: 40px; } .kh-why-us-grid h3 { margin-bottom: 12px; } .kh-why-us-grid p { max-width: 40ch; } }
+
+/* History: an open editorial route, ending with the apiary's principle. */
+.kh-history { max-width: 1400px; margin: auto; padding: 0 max(88px, calc(76px + env(safe-area-inset-right))) 100px 6%; }
+.kh-history-hero { padding: clamp(64px, 10vw, 144px) 0 clamp(80px, 12vw, 170px); }
+.kh-history-hero h1 { max-width: 900px; font-family: var(--font-playfair), Georgia, serif; font-size: clamp(42px, 7vw, 100px); font-weight: 400; letter-spacing: -.035em; line-height: 1.12; }
+.kh-history-hero p { max-width: 580px; margin: 40px 0 0 auto; color: var(--kh-gold); font-size: clamp(18px, 2.2vw, 28px); line-height: 1.6; }
+.kh-history-route { border-left: 1px solid var(--kh-line); }
+.kh-history-step { position: relative; padding: 0 0 clamp(90px, 12vw, 170px) 40px; }
+.kh-history-step::before { content: ''; position: absolute; left: -4px; top: 12px; width: 7px; height: 7px; border-radius: 50%; background: var(--kh-gold); }
+.kh-history-block { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 24px; }
+.kh-history-number { color: var(--kh-gold); font-size: 12px; letter-spacing: .15em; padding-top: 10px; }
+.kh-history-copy { max-width: 660px; }
+.kh-history-copy h2 { font-family: var(--font-playfair), Georgia, serif; font-size: clamp(32px, 4vw, 56px); font-weight: 400; line-height: 1.2; margin-bottom: 32px; }
+.kh-history-copy p { color: var(--kh-ink); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.95; }
+.kh-history-step-first-hive .kh-history-copy { max-width: 560px; margin-left: auto; }
+.kh-history-step-today .kh-history-copy { margin-left: 8%; max-width: 600px; }
+.kh-history-step-principle { padding-bottom: 0; }
+.kh-history-step-principle .kh-history-copy { max-width: none; border-top: 1px solid var(--kh-gold); padding-top: 40px; }
+.kh-history-step-principle h2 { color: var(--kh-gold); font-size: clamp(26px, 3vw, 40px); }
+.kh-history-step-principle p { font-family: var(--font-playfair), Georgia, serif; font-size: clamp(28px, 3.7vw, 50px); line-height: 1.5; }
+.kh-history-cta { margin-top: 64px; padding-left: 124px; }
+@media (max-width: 767px) {
+  .kh-history { padding-left: 6%; }
+  .kh-history-hero h1 { font-size: clamp(36px, 8vw, 58px); overflow-wrap: anywhere; }
+  .kh-history-hero p { margin-top: 28px; }
+  .kh-history-step { padding-left: 18px; }
+  .kh-history-block { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .kh-history-number { padding-top: 6px; }
+  .kh-history-copy h2 { font-size: clamp(28px, 6vw, 40px); margin-bottom: 24px; }
+  .kh-history-step-today .kh-history-copy { margin-left: 0; }
+  .kh-history-step-principle .kh-history-copy { padding-top: 28px; }
+  .kh-history-step-principle p { font-size: clamp(25px, 5.5vw, 36px); }
+  .kh-history-cta { padding-left: 18px; }
+  .kh-history-cta .kh-button { width: 100%; padding-inline: 12px; text-align: center; }
+}
