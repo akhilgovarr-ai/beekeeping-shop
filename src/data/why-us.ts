@@ -1,59 +1,49 @@
 import type { Locale } from "../i18n/dictionaries";
 
-type WhyUsContent = {
-  title: string;
-  items: { id: string; title: string; description: string }[];
-};
+type WhyUsItem = { id: string; iconPath: string; title: Record<Locale, string> };
 
-export const whyUs: Record<Locale, WhyUsContent> = {
-  ru: {
-    title: "Почему выбирают нас?",
-    items: [
-      {
-        id: "choice",
-        title: "Вкус на ваш выбор",
-        description: "Липовый, гречишный, разнотравный — знакомство с мёдом можно начать с привычного сорта или попробовать другой.",
-      },
-      {
-        id: "clarity",
-        title: "Всё перед глазами",
-        description: "Фасовки и цены указаны в карточках товаров. Можно спокойно сравнить варианты и выбрать подходящий.",
-      },
-      {
-        id: "everyday",
-        title: "Для простых моментов",
-        description: "Мёд к завтраку, урбеч к тосту, чай для неспешного вечера. В коллекции есть место повседневным вкусам.",
-      },
-      {
-        id: "gifts",
-        title: "С вниманием к близким",
-        description: "В каталоге есть отдельные продукты и подарочные наборы. Выбирайте то, что хочется оставить себе или подарить.",
-      },
-    ],
+export const whyUs = {
+  title: { ru: "Почему выбирают нас?", en: "Why choose us?" },
+  items: [
+  {
+    "id": "wooden-hives",
+    "iconPath": "M4 9h16v12H4z M3 9l9-6 9 6 M4 13h16 M4 17h16",
+    "title": {
+      "ru": "Деревянные ульи",
+      "en": "Wooden hives"
+    }
   },
-  en: {
-    title: "Why choose us?",
-    items: [
-      {
-        id: "choice",
-        title: "Find your flavour",
-        description: "Linden, buckwheat or wildflower honey — begin with a familiar variety or try something different.",
-      },
-      {
-        id: "clarity",
-        title: "A clear choice",
-        description: "Pack sizes and prices are listed on each product card. Take your time to compare the options and choose what suits you.",
-      },
-      {
-        id: "everyday",
-        title: "For everyday moments",
-        description: "Honey with breakfast, urbech on toast, tea for a quiet evening. There is room in the collection for everyday favourites.",
-      },
-      {
-        id: "gifts",
-        title: "A thoughtful gesture",
-        description: "Explore individual products and gift sets in the catalogue. Choose something to enjoy yourself or share with someone close.",
-      },
-    ],
+  {
+    "id": "no-chemicals",
+    "iconPath": "M9 3h6 M10 3v6L4 19q-1 2 2 2h12q3 0 2-2L14 9V3 M8 14h8 M3 3l18 18",
+    "title": {
+      "ru": "Отсутствие химической обработки",
+      "en": "No chemical treatment"
+    }
   },
-};
+  {
+    "id": "natural-herbs",
+    "iconPath": "M12 21V10 M12 15C5 15 4 10 4 6c6 0 8 3 8 9 M12 11c0-6 3-8 8-8 0 5-2 8-8 8",
+    "title": {
+      "ru": "Лечение пчёл исключительно натуральными травами",
+      "en": "Bees treated exclusively with natural herbs"
+    }
+  },
+  {
+    "id": "clean-fields",
+    "iconPath": "M3 21h18 M8 21v-4H3l5-7H5l5-7 5 7h-3l5 7h-5v4 M17 4l4 6h-3l3 5h-3",
+    "title": {
+      "ru": "Сбор урожая только с экологически чистых полей и лесов",
+      "en": "Harvest only from ecologically clean fields and forests"
+    }
+  },
+  {
+    "id": "winter-feed",
+    "iconPath": "M3 13h18c0 5-3 8-9 8s-9-3-9-8Z M8 9V5 M12 8V3 M16 9V5",
+    "title": {
+      "ru": "Канди с пыльцой в качестве зимней подкормки вместо сахара",
+      "en": "Candy with pollen as winter feed instead of sugar"
+    }
+  }
+],
+} satisfies { title: Record<Locale, string>; items: WhyUsItem[] };

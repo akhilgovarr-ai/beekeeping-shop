@@ -219,7 +219,8 @@ button { cursor: pointer; }
 @media (max-width: 760px) { .kh-hero-catalogue { width: calc(100% - 64px); margin-inline-end: 64px; } }
 @media (max-width: 430px) { .kh-product-grid { grid-template-columns: 1fr; } .kh-product-title { min-height: 0; } }
 .kh-why-us > h2 { max-width: 720px; margin-bottom: clamp(48px, 6vw, 80px); }
-.kh-why-us-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px; }
+.kh-why-us-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px; }
+.kh-why-us-icon { color: var(--kh-gold); margin-bottom: 20px; }
 .kh-why-us-grid h3 { font-family: var(--font-playfair), Georgia, serif; color: var(--kh-gold); font-size: 23px; line-height: 1.35; font-weight: 400; margin-bottom: 20px; }
 .kh-why-us-grid p { color: var(--kh-muted); font-size: 14px; line-height: 1.9; max-width: 34ch; }
 @media (max-width: 1100px) { .kh-why-us-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 40px; } }

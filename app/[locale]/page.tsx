@@ -11,19 +11,21 @@ export default async function LocalePage({ params }: { params: Promise<{ locale:
   const { locale } = await params;
   if (locale !== "ru" && locale !== "en") notFound();
   const ru = locale === "ru";
-  const reasons = whyUs[locale];
+  const reasons = whyUs;
   return (
     <>
       <Header locale={locale} />
       <main className="kh-home">
         <Hero locale={locale} />
         <section className="kh-why-us kh-section" aria-labelledby="why-us-title">
-          <h2 id="why-us-title">{reasons.title}</h2>
+          <h2 id="why-us-title">{reasons.title[locale]}</h2>
           <div className="kh-why-us-grid">
             {reasons.items.map(item => (
               <article key={item.id}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <svg className="kh-why-us-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d={item.iconPath} />
+                </svg>
+                <h3>{item.title[locale]}</h3>
               </article>
             ))}
           </div>
