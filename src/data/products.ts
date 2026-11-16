@@ -1,5 +1,10 @@
 import type { Product } from "../types/product";
 
+const beeAllergenNote = {
+  ru: "Пчелопродукты являются аллергенами.",
+  en: "Bee products are allergens.",
+};
+
 export const products: Product[] = [
   // ───────── УРБЕЧ ─────────
   {
@@ -58,6 +63,7 @@ export const products: Product[] = [
     id: "bee-bread",
     slug: "bee-bread",
     category: "honey-products",
+    allergenNote: beeAllergenNote,
     hasDeclaration: false,
     name: { ru: "Перга", en: "Bee Bread" },
     shortDescription: {
@@ -75,6 +81,7 @@ export const products: Product[] = [
     id: "pollen",
     slug: "pollen",
     category: "honey-products",
+    allergenNote: beeAllergenNote,
     hasDeclaration: false,
     name: { ru: "Пчелиная пыльца", en: "Bee Pollen" },
     shortDescription: {
@@ -92,6 +99,7 @@ export const products: Product[] = [
     id: "propolis",
     slug: "propolis",
     category: "honey-products",
+    allergenNote: beeAllergenNote,
     hasDeclaration: false,
     name: { ru: "Прополис", en: "Propolis" },
     shortDescription: {
@@ -109,6 +117,7 @@ export const products: Product[] = [
     id: "royal-jelly",
     slug: "royal-jelly",
     category: "honey-products",
+    allergenNote: beeAllergenNote,
     hasDeclaration: false,
     name: { ru: "Маточное молочко с пергой и мёдом", en: "Royal Jelly with Bee Bread and Honey" },
     shortDescription: {
@@ -158,6 +167,7 @@ export const products: Product[] = [
     id: "buckwheat-honey",
     slug: "buckwheat-honey",
     category: "honey",
+    allergenNote: beeAllergenNote,
     hasDeclaration: true,
     name: { ru: "Гречишный мёд", en: "Buckwheat Honey" },
     shortDescription: {
@@ -177,6 +187,7 @@ export const products: Product[] = [
     id: "goldenrod-honey",
     slug: "goldenrod-honey",
     category: "honey",
+    allergenNote: beeAllergenNote,
     hasDeclaration: true,
     name: { ru: "Мёд из золотарника", en: "Goldenrod Honey" },
     shortDescription: {
@@ -196,6 +207,7 @@ export const products: Product[] = [
     id: "wildflower-honey",
     slug: "wildflower-honey",
     category: "honey",
+    allergenNote: beeAllergenNote,
     hasDeclaration: true,
     name: { ru: "Разнотравный мёд", en: "Wildflower Honey" },
     shortDescription: {
@@ -215,6 +227,7 @@ export const products: Product[] = [
     id: "mountain-linden-honey",
     slug: "mountain-linden-honey",
     category: "honey",
+    allergenNote: beeAllergenNote,
     hasDeclaration: true,
     name: { ru: "Горный липовый мёд", en: "Mountain Linden Honey" },
     shortDescription: {
@@ -234,6 +247,7 @@ export const products: Product[] = [
     id: "mountain-spurge-honey",
     slug: "mountain-spurge-honey",
     category: "honey",
+    allergenNote: beeAllergenNote,
     hasDeclaration: true,
     name: { ru: "Горный молочаевый мёд", en: "Mountain Spurge Honey" },
     shortDescription: {
@@ -253,6 +267,7 @@ export const products: Product[] = [
     id: "honeycomb-honey",
     slug: "honeycomb-honey",
     category: "honey",
+    allergenNote: beeAllergenNote,
     hasDeclaration: true,
     name: { ru: "Сотовый мёд", en: "Honeycomb Honey" },
     shortDescription: {
@@ -285,6 +300,7 @@ export const products: Product[] = [
     id: "gift-set-large",
     slug: "gift-set-large",
     category: "gift-sets",
+    allergenNote: beeAllergenNote,
     hasDeclaration: false,
     name: { ru: "Kavkaz Hills — большой бокс", en: "Kavkaz Hills — Large Box" },
     shortDescription: {
@@ -299,6 +315,7 @@ export const products: Product[] = [
     id: "gift-set-medium",
     slug: "gift-set-medium",
     category: "gift-sets",
+    allergenNote: beeAllergenNote,
     hasDeclaration: false,
     name: { ru: "Корзина средняя", en: "Medium Gift Basket" },
     shortDescription: {
@@ -313,6 +330,7 @@ export const products: Product[] = [
     id: "gift-set-small",
     slug: "gift-set-small",
     category: "gift-sets",
+    allergenNote: beeAllergenNote,
     hasDeclaration: false,
     name: { ru: "Корзина малая", en: "Small Gift Basket" },
     shortDescription: {

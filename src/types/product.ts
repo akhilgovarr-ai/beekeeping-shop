@@ -26,5 +26,6 @@ export interface Product {
   imageName: string;
   available: boolean;
   hasDeclaration: boolean;
+  allergenNote?: LocalizedText;
   featured?: boolean;
 }

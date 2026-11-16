@@ -283,3 +283,5 @@ button { cursor: pointer; }
 .kh-declaration-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--kh-gold); font-size: 13px; line-height: 1.7; text-decoration: underline; text-underline-offset: 4px; }
 .kh-quality .kh-button { text-align: center; }
 @media (max-width: 767px) { .kh-quality-facts > div { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
+
+.kh-allergen-note { margin-top: 12px; color: var(--kh-muted); font-size: 13px; font-weight: 400; line-height: 1.7; }

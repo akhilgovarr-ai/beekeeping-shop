@@ -3,6 +3,8 @@
 import { useCart } from "./CartContext";
 import { contacts } from "../../src/config/contacts";
 import { formatPrice } from "../../src/lib/product-format";
+import { products } from "../../src/data/products";
+import AllergenNote from "./AllergenNote";
 
 type Locale = "ru" | "en";
 
@@ -83,6 +85,7 @@ export default function CartDrawer({ locale }: { locale: Locale }) {
                   <div className="flex min-w-0 flex-col gap-1 break-words">
                     <span className="text-sm text-ink">{item.name}</span>
                     <span className="text-xs text-gold">{formatPrice(item.price)}</span>
+                    <AllergenNote note={products.find(product => product.id === item.id.split("::")[0])?.allergenNote} locale={locale} />
                   </div>
 
                   <div className="flex shrink-0 items-center gap-3">

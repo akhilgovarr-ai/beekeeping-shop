@@ -7,6 +7,7 @@ import { getProductImage } from "../../src/lib/product-image";
 import { formatPackage, formatPrice } from "../../src/lib/product-format";
 import type { Product } from "../../src/types/product";
 import { declarationUrl, quality } from "../../src/data/quality";
+import AllergenNote from "./AllergenNote";
 
 type Locale = "ru" | "en";
 
@@ -63,6 +64,7 @@ export default function ProductModal({
         <div className="kh-modal-copy">
           <h2 id="product-title" className="text-2xl font-medium text-ink">{name}</h2>
           <p className="text-sm leading-relaxed text-ink-soft">{description}</p>
+          <AllergenNote note={product.allergenNote} locale={locale} />
           {product.hasDeclaration && (
             <a className="kh-declaration-link" href={declarationUrl} target="_blank" rel="noopener noreferrer">{quality[locale].productLink}</a>
           )}

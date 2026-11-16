@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { Product } from "../../src/types/product";
 import { getProductImage } from "../../src/lib/product-image";
 import { formatPackage, formatPrice } from "../../src/lib/product-format";
+import AllergenNote from "./AllergenNote";
 
 type Locale = "ru" | "en";
 
@@ -26,6 +27,7 @@ export default function ProductCard({
       onClick={() => onSelect(product)}
       className="kh-product"
       aria-label={locale === "ru" ? `Открыть товар: ${name}` : `Open product: ${name}`}
+      aria-describedby={product.allergenNote?.[locale] ? `allergen-${product.id}` : undefined}
     >
       <div className="kh-product-image">
         {image ? (
@@ -56,6 +58,7 @@ export default function ProductCard({
             {locale === "ru" ? "Цена уточняется" : "Price on request"}
           </span>
         )}
+        <AllergenNote id={`allergen-${product.id}`} note={product.allergenNote} locale={locale} />
       </div>
     </button>
   );
