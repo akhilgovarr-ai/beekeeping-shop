@@ -71,7 +71,7 @@ export default function Header({ locale }: { locale: Locale }) {
           <strong>{location.name[locale]}</strong><p>{location.address[locale]}</p>
           {location.mapUrl && <a className="kh-text-link" href={location.mapUrl}>{t.locations} ↗</a>}
         </li>)}</ul> : <p>{t.noLocations}</p>)}
-        {panel === "delivery" && <p>{t.deliveryPending}</p>}
+        {panel === "delivery" && <p>{t.deliveryInfo}</p>}
         {panel === "menu" && <nav className="kh-panel-nav" aria-label={t.menu}>
           <a href={catalogue}>{t.catalogue}</a>
           <button type="button" onClick={() => setPanel("delivery")}>{t.delivery}</button>

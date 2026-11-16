@@ -12,7 +12,7 @@ export const dictionaries = {
       language: "Language", hours: "Opening hours", phone: "Russian phone number",
       missing: "Details will be added", whatsapp: "WhatsApp",
       noLocations: "Sales locations will be added.",
-      deliveryPending: "Delivery and payment terms will be added.",
+      deliveryInfo: "Delivery across Russia via CDEK",
     },
     nav: {
       collection: "Collection",
@@ -49,7 +49,7 @@ export const dictionaries = {
       language: "Язык", hours: "Режим работы", phone: "Российский номер",
       missing: "Данные будут добавлены", whatsapp: "WhatsApp",
       noLocations: "Точки продаж будут добавлены.",
-      deliveryPending: "Условия доставки и оплаты будут добавлены.",
+      deliveryInfo: "Доставка по всей России службой СДЭК",
     },
     nav: {
       collection: "Коллекция",
