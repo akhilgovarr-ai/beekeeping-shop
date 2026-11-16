@@ -83,7 +83,7 @@ export default async function LocaleLayout({
     <body>
       <CartProvider>
         {children}
-        <Footer />
+        <Footer locale={locale as Locale} />
         <FloatingCart locale={locale as "ru" | "en"} />
         <CartDrawer locale={locale as "ru" | "en"} />
       </CartProvider>

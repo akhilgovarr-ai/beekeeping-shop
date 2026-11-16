@@ -1,7 +1,7 @@
 "use client";
 
 import { useCart } from "./CartContext";
-import { CONTACT } from "../../src/lib/constants";
+import { contacts } from "../../src/config/contacts";
 import { formatPrice } from "../../src/lib/product-format";
 
 type Locale = "ru" | "en";
@@ -39,12 +39,12 @@ export default function CartDrawer({ locale }: { locale: Locale }) {
   const message = buildOrderMessage(items, totalPrice, locale);
   const encodedMessage = encodeURIComponent(message);
 
-  const whatsappHref = CONTACT.whatsapp
-    ? `https://wa.me/${CONTACT.whatsapp}?text=${encodedMessage}`
+  const whatsappHref = contacts.socialLinks.whatsapp
+    ? `${contacts.socialLinks.whatsapp}?text=${encodedMessage}`
     : null;
 
-  const telegramHref = CONTACT.telegram
-    ? `https://t.me/${CONTACT.telegram}?text=${encodedMessage}`
+  const telegramHref = contacts.telegram
+    ? `https://t.me/${contacts.telegram}?text=${encodedMessage}`
     : // Фолбэк, если обычная ссылка не подставляет текст на практике:
       // `https://t.me/share/url?url=&text=${encodedMessage}`
       null;

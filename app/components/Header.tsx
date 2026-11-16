@@ -64,8 +64,8 @@ export default function Header({ locale }: { locale: Locale }) {
         </div>
         {panel === "call" && <div className="kh-contact-details">
           <p>{t.hours}<span>{contacts.workingHours[locale] || t.missing}</span></p>
-          <p>{t.phone}<span>{contacts.russianPhone ? <a href={`tel:${contacts.russianPhone.replace(/[^\d+]/g, "")}`}>{contacts.russianPhone}</a> : t.missing}</span></p>
-          {contacts.whatsapp ? <a className="kh-text-link" href={`https://wa.me/${contacts.whatsapp}`}>{t.whatsapp} ↗</a> : <p>{t.whatsapp}<span>{t.missing}</span></p>}
+          <p>{t.phone}<span>{contacts.russianPhone ? <a href={contacts.phoneHref}>{contacts.russianPhone}</a> : t.missing}</span></p>
+          {contacts.socialLinks.whatsapp ? <a className="kh-text-link" href={contacts.socialLinks.whatsapp}>{t.whatsapp} ↗</a> : <p>{t.whatsapp}<span>{t.missing}</span></p>}
         </div>}
         {panel === "locations" && (locations.length ? <ul className="kh-location-list">{locations.map(location => <li key={location.id}>
           <strong>{location.name[locale]}</strong><p>{location.address[locale]}</p>
