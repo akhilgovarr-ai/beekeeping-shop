@@ -7,7 +7,7 @@ export const dictionaries = {
     header: {
       home: "Kavkaz Hills — home", call: "Call us", locations: "Sales locations",
       certificates: "Certificates", menu: "Menu", close: "Close panel", catalogue: "Catalogue",
-      delivery: "Delivery and payment", cart: "Cart", story: "Our story",
+      delivery: "Delivery and payment", cart: "Cart", about: "About us",
       language: "Language", hours: "Opening hours", phone: "Russian phone number",
       missing: "Details will be added", whatsapp: "WhatsApp",
       noLocations: "Sales locations will be added.",
@@ -15,8 +15,7 @@ export const dictionaries = {
     },
     nav: {
       collection: "Collection",
-      origin: "Our origin",
-      story: "Story",
+      about: "About us",
       contact: "Contact",
       order: "Order",
     },
@@ -31,7 +30,7 @@ export const dictionaries = {
       description:
         "Natural products shaped by mountain air, ancient craft and a deep respect for the land.",
       primaryCta: "Explore collection",
-      secondaryCta: "Discover our story",
+      secondaryCta: "About us",
     },
   },
 
@@ -43,7 +42,7 @@ export const dictionaries = {
     header: {
       home: "Kavkaz Hills — главная", call: "Позвонить", locations: "Точки продаж",
       certificates: "Сертификаты", menu: "Меню", close: "Закрыть панель", catalogue: "Каталог",
-      delivery: "Доставка и оплата", cart: "Корзина", story: "История",
+      delivery: "Доставка и оплата", cart: "Корзина", about: "О нас",
       language: "Язык", hours: "Режим работы", phone: "Российский номер",
       missing: "Данные будут добавлены", whatsapp: "WhatsApp",
       noLocations: "Точки продаж будут добавлены.",
@@ -51,8 +50,7 @@ export const dictionaries = {
     },
     nav: {
       collection: "Коллекция",
-      origin: "Происхождение",
-      story: "История",
+      about: "О нас",
       contact: "Контакты",
       order: "Заказать",
     },
@@ -67,7 +65,7 @@ export const dictionaries = {
       description:
         "Натуральные продукты, созданные природой, традициями и уважением к земле.",
       primaryCta: "Смотреть коллекцию",
-      secondaryCta: "Наша история",
+      secondaryCta: "О нас",
     },
   },
 } as const;

@@ -16,7 +16,7 @@ type HistoryContent = {
 
 export const history: Record<Locale, HistoryContent> = {
   ru: {
-    title: "История Kavkaz Hills",
+    title: "О нас",
     subtitle: "Путь, который начался в Грозном и продолжается вслед за цветением трав",
     catalogueCta: "Перейти в каталог",
     blocks: [
@@ -43,7 +43,7 @@ export const history: Record<Locale, HistoryContent> = {
     ],
   },
   en: {
-    title: "The History of Kavkaz Hills",
+    title: "About us",
     subtitle: "A journey that began in Grozny and continues wherever the herbs bloom",
     catalogueCta: "Go to catalog",
     blocks: [

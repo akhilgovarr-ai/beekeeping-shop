@@ -27,7 +27,7 @@ button { cursor: pointer; }
 .kh-hero-copy { padding: clamp(55px, 8vw, 120px) 7.5% 28px; display: flex; flex-direction: column; align-items: flex-start; }
 .kh-eyebrow { font-size: 10px; line-height: 1.6; letter-spacing: .22em; text-transform: uppercase; color: var(--kh-gold); margin: 0 0 30px; }
 .kh-hero h1 { font-size: clamp(40px, 4.7vw, 76px); font-weight: 400; line-height: 1.15; letter-spacing: -.04em; margin: 0; }
-.kh-hero h1 em, .kh-origin h2 em, .kh-footer h2 em { display: block; font-weight: 400; color: var(--kh-gold); }
+.kh-hero h1 em, .kh-footer h2 em { display: block; font-weight: 400; color: var(--kh-gold); }
 .kh-intro { max-width: 355px; font-size: 14px; line-height: 1.9; color: var(--kh-muted); margin: 28px 0 34px; }
 .kh-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; }
 .kh-button { border: 1px solid #c6a66a80; border-image: var(--kh-gold-metal) 1; color: var(--kh-gold); padding: 17px 22px; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 30px; font-size: 12px; line-height: 1.5; letter-spacing: .04em; transition: color .2s, background .2s; }
@@ -55,12 +55,6 @@ button { cursor: pointer; }
 .kh-product-title { overflow-wrap: anywhere; }
 .kh-product-price { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; line-height: 1.8; padding: 5px 0; border-top: 1px solid #ffffff0b; color: var(--kh-muted); }
 .kh-product-price span:last-child { color: var(--kh-gold); white-space: nowrap; }
-.kh-origin { border-top: 1px solid var(--kh-line); display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 9%; }
-.kh-origin-photo { position: relative; aspect-ratio: 4/5; }
-.kh-origin-photo img { object-fit: cover; }
-.kh-origin-photo::after { position: absolute; content: ''; inset: 0; pointer-events: none; background: linear-gradient(270deg, #090909 0%, #090909a6 12%, #09090933 32%, transparent 60%); }
-.kh-origin-copy p:not(.kh-eyebrow) { color: var(--kh-muted); line-height: 1.9; font-size: 14px; max-width: 400px; margin-top: 30px; }
-.kh-origin-signature { display: block; font-family: var(--font-playfair), serif; font-size: 21px; color: var(--kh-gold); margin-top: 40px; }
 .kh-footer { border-top: 1px solid var(--kh-line); padding: 80px max(4%, calc((100% - 1288px) / 2)) 25px; }
 .kh-footer-main { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding-bottom: 80px; }
 .kh-footer-contact { max-width: 340px; justify-self: end; }
@@ -87,9 +81,7 @@ button { cursor: pointer; }
   .kh-wordmark,
   .kh-eyebrow,
   .kh-hero h1 em,
-  .kh-origin h2 em,
-  .kh-footer h2 em,
-  .kh-origin-signature {
+  .kh-footer h2 em {
     background-image: var(--kh-gold-metal);
     background-clip: text;
     -webkit-background-clip: text;
@@ -98,8 +90,8 @@ button { cursor: pointer; }
   }
 }
 @media (forced-colors: active) {
-  .kh-wordmark, .kh-eyebrow, .kh-hero h1 em, .kh-origin h2 em,
-  .kh-footer h2 em, .kh-origin-signature {
+  .kh-wordmark, .kh-eyebrow, .kh-hero h1 em,
+  .kh-footer h2 em {
     background: none; color: CanvasText; -webkit-text-fill-color: CanvasText;
   }
   .kh-button { border-image: none; border-color: ButtonText; }
@@ -131,9 +123,6 @@ button { cursor: pointer; }
   .kh-product-title { font-size: 17px; min-height: 46px; }
   .kh-product-info { padding-top: 16px; }
   .kh-product-price { font-size: 11px; flex-wrap: wrap; }
-  .kh-origin { grid-template-columns: 1fr; gap: 35px; }
-  .kh-origin-photo { aspect-ratio: 4/3; }
-  .kh-origin-photo::after { background: linear-gradient(0deg, #090909 0%, #09090999 15%, transparent 55%); }
   .kh-footer { padding: 60px 6% 25px; }
   .kh-footer-main { grid-template-columns: 1fr; gap: 30px; padding-bottom: 45px; }
   .kh-footer-contact { justify-self: start; }
@@ -282,4 +271,39 @@ button { cursor: pointer; }
   .kh-partner-card { padding: 16px 12px; }
   .kh-partner-card h3 { font-size: 20px; }
   .kh-partners { padding-bottom: 88px; }
+}
+
+.kh-about-teaser { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 8%; border-top: 1px solid var(--kh-line); }
+.kh-about-photo { position: relative; aspect-ratio: 3/2; }
+.kh-about-photo img { object-fit: cover; }
+.kh-about-copy p { margin: 28px 0; color: var(--kh-ink); font-size: 16px; line-height: 1.9; }
+.kh-product { height: 100%; max-width: none; margin: 0; overflow-wrap: anywhere; }
+.kh-product-open { width: 100%; min-width: 0; text-align: left; }
+.kh-product-open .kh-product-title { margin: 16px 0 0; min-height: 2.7em; line-height: 1.35; }
+.kh-product-info { flex: 1; padding-top: 12px; gap: 10px; }
+.kh-product-variant { width: 100%; min-width: 0; min-height: 44px; border: 1px solid var(--kh-line); background: #101010; color: var(--kh-ink); padding: 8px; font-size: 13px; }
+.kh-product-card-price { display: block; color: var(--kh-gold); font-size: 15px; line-height: 1.6; }
+.kh-product-add { width: 100%; min-height: 44px; margin-top: auto; padding: 12px 8px; text-align: center; white-space: normal; }
+.kh-product-add:disabled { opacity: .65; cursor: not-allowed; }
+.kh-product .kh-allergen-note { margin-top: 0; }
+@media (max-width: 767px) {
+  .kh-section, .kh-partners.kh-section { padding-left: 12px; padding-right: 12px; }
+  .kh-product-grid, .kh-why-us-grid, .kh-partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .kh-product-grid > *, .kh-why-us-grid > *, .kh-partners-grid > * { min-width: 0; max-width: none; margin-inline: 0; }
+  .kh-product-open .kh-product-title { font-size: 16px; }
+  .kh-product-card-price { font-size: 14px; }
+  .kh-product-variant, .kh-product-add { font-size: 12px; }
+  .kh-product .kh-allergen-note { font-size: 12px; line-height: 1.65; }
+  .kh-product-image { width: 100%; aspect-ratio: 1; }
+  .kh-why-us-grid article { padding: 14px 8px; overflow-wrap: anywhere; }
+  .kh-why-us-grid article:last-child { grid-column: span 2; }
+  .kh-why-us-grid h3 { font-size: 17px; line-height: 1.5; margin-bottom: 0; }
+  .kh-why-us-icon { width: 26px; height: 26px; margin-bottom: 12px; }
+  .kh-partner-card { width: 100%; padding: 16px 10px; }
+  .kh-partner-card h3 { font-size: 17px; line-height: 1.4; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+  .kh-partner-city, .kh-partner-addresses p, .kh-partner-addresses a { font-size: 12px; overflow-wrap: anywhere; }
+  .kh-partner-addresses { gap: 16px; margin-top: 16px; }
+  .kh-partner-addresses a { max-width: 100%; min-height: 44px; }
+  .kh-about-teaser { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .kh-locations-title { padding-inline: 12px; }
 }

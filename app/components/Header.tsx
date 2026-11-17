@@ -75,7 +75,7 @@ export default function Header({ locale }: { locale: Locale }) {
           <a href={`/${locale}/locations`}>{t.locations}</a>
           <button type="button" onClick={() => setPanel("delivery")}>{t.delivery}</button>
           <button type="button" onClick={() => { close(false); openCart(); }}>{t.cart} <span>{totalItems}</span></button>
-          <a href={`/${locale}/history`} onClick={() => close(false)}>{t.story}</a>
+          <a href={`/${locale}/about`} onClick={() => close(false)}>{t.about}</a>
           <div className="kh-languages" aria-label={t.language}>
             {(["ru", "en"] as const).map(lang => <a key={lang} href={pathname.replace(/^\/(ru|en)(?=\/|$)/, `/${lang}`)} hrefLang={lang} lang={lang} aria-current={locale === lang ? "true" : undefined}>{lang.toUpperCase()}</a>)}
           </div>

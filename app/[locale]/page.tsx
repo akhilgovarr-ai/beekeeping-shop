@@ -1,4 +1,4 @@
-import Image from "next/image";
+import AboutSection from "../components/AboutSection";
 import { notFound } from "next/navigation";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -36,10 +36,7 @@ export default async function LocalePage({ params }: { params: Promise<{ locale:
           <p className="kh-section-intro">{ru ? "Четыре сорта мёда и продолжение коллекции: продукты улья, урбеч и чай." : "Four honey varieties, followed by products from the hive, urbech and tea."}</p>
           <PreviewGrid locale={locale} />
         </section></Reveal>
-        <Reveal><section id="about" className="kh-origin kh-section">
-          <div className="kh-origin-photo"><Image src="/images/beekeepers/IMG_9620.JPG" alt={ru ? "Пчеловод Kavkaz Hills на пасеке" : "Kavkaz Hills beekeeper at the apiary"} fill sizes="(max-width: 760px) 100vw, 50vw" /></div>
-          <div className="kh-origin-copy"><p className="kh-eyebrow">{ru ? "Наше происхождение" : "Our origin"}</p><h2>{ru ? "За каждым вкусом —" : "Behind every flavour,"}<em>{ru ? "люди и земля." : "people and a place."}</em></h2><p>{ru ? "Высоко в горах Кавказа природа всё ещё живёт в своём ритме. В нашей коллекции встречаются мёд, традиционный урбеч и чай — разные способы познакомиться со вкусами региона." : "High in the Caucasus, nature still keeps its own time. Honey, traditional urbech and tea come together in our collection — different ways to discover the flavours of the region."}</p><span className="kh-origin-signature">Kavkaz Hills</span></div>
-        </section></Reveal>
+        <AboutSection locale={locale} />
       </main>
     </>
   );
