@@ -1,6 +1,5 @@
 export const dictionaries = {
   en: {
-    reviews: { title: "Reviews", empty: "No reviews have been published yet." },
     catalogue: {
       showCategories: "Show all categories", hideCategories: "Hide categories",
       all: "All products", comingSoon: "Coming soon",
@@ -37,7 +36,6 @@ export const dictionaries = {
   },
 
   ru: {
-    reviews: { title: "Отзывы", empty: "Здесь пока нет опубликованных отзывов." },
     catalogue: {
       showCategories: "Показать все категории", hideCategories: "Скрыть категории",
       all: "Все товары", comingSoon: "Скоро в продаже",

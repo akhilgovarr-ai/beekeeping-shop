@@ -198,7 +198,6 @@ button { cursor: pointer; }
 .kh-catalogue-empty { padding: 80px 20px; text-align: center; color: var(--kh-muted); border: 1px solid var(--kh-line); font-family: var(--font-playfair), Georgia, serif; font-size: clamp(24px, 4vw, 36px); }
 
 .kh-why-us { padding-top: clamp(80px, 9vw, 140px); padding-bottom: clamp(80px, 9vw, 140px); }
-.kh-reviews > h2 { margin-bottom: 40px; }
 .kh-partners-intro { margin-top: 20px; margin-bottom: 40px; color: var(--kh-muted); font-size: 15px; line-height: 1.8; }
 .kh-partners-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
 .kh-partner-reveal { min-width: 0; }
@@ -212,12 +211,6 @@ button { cursor: pointer; }
 .kh-partner-addresses a:hover { color: var(--kh-ink); }
 @media (min-width: 768px) { .kh-partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1200px) { .kh-partners-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.kh-reviews-empty { padding: 32px 0; font-size: 15px; line-height: 1.8; color: var(--kh-muted); }
-.kh-reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px; }
-.kh-review-card { margin: 0; padding: clamp(24px, 3vw, 40px); background: #111110; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-width: 0; }
-.kh-review-card blockquote { margin: 0; }
-.kh-review-card p { color: var(--kh-ink); font-size: 15px; line-height: 1.9; white-space: pre-line; overflow-wrap: anywhere; }
-.kh-review-card figcaption { color: var(--kh-gold); font-size: 13px; overflow-wrap: anywhere; }
 .kh-social-footer { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 40px 6% calc(88px + env(safe-area-inset-bottom)); text-align: center; }
 .kh-footer-social-links { display: flex; gap: 20px; }
 .kh-footer-hours { color: var(--kh-muted); font-size: 14px; line-height: 1.9; }
@@ -284,7 +277,7 @@ button { cursor: pointer; }
 .kh-locations .kh-locations-partners { padding-top: 48px; }
 .kh-locations-existing { padding-top: 0; color: var(--kh-muted); font-size: 14px; line-height: 1.8; }
 @media (max-width: 767px) {
-  .kh-partners.kh-section { padding-inline: 6%; }
+  .kh-partners.kh-section { padding-inline-start: 6%; }
   .kh-partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .kh-partner-card { padding: 16px 12px; }
   .kh-partner-card h3 { font-size: 20px; }
