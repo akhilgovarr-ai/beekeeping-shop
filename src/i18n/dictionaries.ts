@@ -7,7 +7,7 @@ export const dictionaries = {
     },
     header: {
       home: "Kavkaz Hills — home", call: "Call us", locations: "Sales locations",
-      menu: "Menu", close: "Close panel", catalogue: "Catalogue",
+      certificates: "Certificates", menu: "Menu", close: "Close panel", catalogue: "Catalogue",
       delivery: "Delivery and payment", cart: "Cart", story: "Our story",
       language: "Language", hours: "Opening hours", phone: "Russian phone number",
       missing: "Details will be added", whatsapp: "WhatsApp",
@@ -44,7 +44,7 @@ export const dictionaries = {
     },
     header: {
       home: "Kavkaz Hills — главная", call: "Позвонить", locations: "Точки продаж",
-      menu: "Меню", close: "Закрыть панель", catalogue: "Каталог",
+      certificates: "Сертификаты", menu: "Меню", close: "Закрыть панель", catalogue: "Каталог",
       delivery: "Доставка и оплата", cart: "Корзина", story: "История",
       language: "Язык", hours: "Режим работы", phone: "Российский номер",
       missing: "Данные будут добавлены", whatsapp: "WhatsApp",

@@ -6,7 +6,6 @@ import PreviewGrid from "../components/PreviewGrid";
 import Reveal from "../components/Reveal";
 import Reviews from "../components/Reviews";
 import PartnersSection from "../components/PartnersSection";
-import QualitySection from "../components/QualitySection";
 import { whyUs } from "../../src/data/why-us";
 
 export default async function LocalePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -32,7 +31,6 @@ export default async function LocalePage({ params }: { params: Promise<{ locale:
             ))}
           </div>
         </section>
-        <QualitySection locale={locale} />
         <PartnersSection locale={locale} />
         <Reviews locale={locale} />
         <Reveal><section id="collection" className="kh-section">

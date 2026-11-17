@@ -59,12 +59,16 @@ export const partners: Partner[] = [
 export const partnersContent = {
   ru: {
     title: "Наши партнёры",
+    locationsTitle: "Где представлена наша продукция",
+    locationsSubtitle: "Наша продукция выставлена у партнёров.",
     subtitle: "Наши партнёры и их адреса.",
     openMap: "Открыть на карте",
   },
   en: {
     title: "Our partners",
+    locationsTitle: "Where our products are served",
+    locationsSubtitle: "Our products are presented at our partners.",
     subtitle: "Our partners and their addresses.",
     openMap: "Open on map",
   },
-} satisfies Record<Locale, { title: string; subtitle: string; openMap: string }>;
+} satisfies Record<Locale, { title: string; subtitle: string; openMap: string; locationsTitle: string; locationsSubtitle: string }>;

@@ -274,14 +274,19 @@ button { cursor: pointer; }
   .kh-history-cta .kh-button { width: 100%; padding-inline: 12px; text-align: center; }
 }
 
-.kh-quality h3 { margin-top: 36px; font-family: var(--font-playfair), Georgia, serif; font-size: clamp(24px, 3vw, 34px); font-weight: 400; line-height: 1.4; color: var(--kh-gold); }
-.kh-quality-scope { margin-top: 20px; color: var(--kh-ink); font-size: 15px; line-height: 1.8; }
-.kh-quality-facts { margin: 32px 0; max-width: 950px; }
-.kh-quality-facts > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 24px; padding: 20px 0; border-top: 1px solid var(--kh-line); font-size: 14px; line-height: 1.8; overflow-wrap: anywhere; }
-.kh-quality-facts dt { color: var(--kh-muted); }
-.kh-quality-facts dd { margin: 0; }
-.kh-declaration-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--kh-gold); font-size: 13px; line-height: 1.7; text-decoration: underline; text-underline-offset: 4px; }
-.kh-quality .kh-button { text-align: center; }
-@media (max-width: 767px) { .kh-quality-facts > div { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
 
 .kh-allergen-note { margin-top: 12px; color: var(--kh-muted); font-size: 13px; font-weight: 400; line-height: 1.7; }
+
+.kh-header-panel.kh-side-menu { position: fixed; left: 0; right: auto; top: 0; bottom: 0; width: min(360px, 92vw); max-height: 100dvh; padding: 28px; border-left: 0; }
+.kh-documents h1, .kh-locations-title { font-family: var(--font-playfair), Georgia, serif; font-size: clamp(36px, 5vw, 64px); font-weight: 400; line-height: 1.2; }
+.kh-documents > p { max-width: 680px; margin: 32px 0; color: var(--kh-ink); font-size: 16px; line-height: 1.9; }
+.kh-locations-title { max-width: 1400px; margin: auto; padding: 80px 6% 0; }
+.kh-locations .kh-locations-partners { padding-top: 48px; }
+.kh-locations-existing { padding-top: 0; color: var(--kh-muted); font-size: 14px; line-height: 1.8; }
+@media (max-width: 767px) {
+  .kh-partners.kh-section { padding-inline: 6%; }
+  .kh-partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .kh-partner-card { padding: 16px 12px; }
+  .kh-partner-card h3 { font-size: 20px; }
+  .kh-partners { padding-bottom: 88px; }
+}
